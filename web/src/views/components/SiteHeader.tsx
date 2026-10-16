@@ -2,14 +2,15 @@
 
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
-import { LINKEDIN_URL } from "@/models/profile.model";
 import { useCopy } from "@/viewmodels/LocaleProvider";
+import { useQuoteViewModel } from "@/viewmodels/useQuoteViewModel";
 import { LangSwitch } from "./LangSwitch";
 import { LogoMark } from "./LogoMark";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader() {
   const { t } = useCopy();
+  const quote = useQuoteViewModel();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [solid, setSolid] = useState(false);
@@ -55,7 +56,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <LangSwitch />
           <motion.a
-            href={LINKEDIN_URL}
+            href={quote.general}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}

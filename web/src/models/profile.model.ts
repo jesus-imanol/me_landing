@@ -36,6 +36,9 @@ export const SOCIALS: SocialLink[] = [
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61555328035149" },
 ];
 
+/** WhatsApp para cotizaciones: 52 (México) + 961 179 8392 */
+export const WHATSAPP_NUMBER = "529611798392";
+
 export const X_HANDLE = "@jesuscast7z";
 
 export const GITHUB_URL = SOCIALS[0].href;

@@ -37,4 +37,4 @@ Fuente en código: `web/src/models/live.model.ts`. Capturas reales tomadas con E
 | **Emilia Bonita** | https://emilia-bonita-coffee.jaguarmind.network/ | Landing de cafetería en Huixtla con carta, carrito y pedido a WhatsApp |
 | **Fiadoma** | https://github.com/jesus-imanol/fiadoma | App Flutter para llevar fiados de tiendas (clientes, deudas, abonos) sobre Supabase. Sin sitio público: se muestra su marca |
 
-El botón "Quiero algo así" lleva a LinkedIn. Pendiente: si Jesús da un WhatsApp de negocio, cambiar las cotizaciones a WhatsApp con mensaje prellenado.
+Cotizaciones por **WhatsApp** (+52 961 179 8392, `WHATSAPP_NUMBER` en `profile.model.ts`). `services/whatsapp.service.ts` arma el link con el mensaje ya escrito en el idioma de la página: general ("vi tu portafolio…") o por proyecto ("vi tu proyecto X…"). Lo usan "Hablemos" (header), "Escríbeme por WhatsApp" (contacto), la tarjeta lima y "Quiero algo así" de cada proyecto. LinkedIn queda en la lista de redes.

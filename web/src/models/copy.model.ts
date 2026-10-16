@@ -119,7 +119,7 @@ export const COPY: Localized<Copy> = {
       titleA: "¿Lo",
       titleB: "construimos?",
       body: "Si buscas a alguien que diseñe los límites antes de escribir la primera línea, y que además se ría mientras lo hace, mándame mensaje. Respondo rápido. Tilín.",
-      cta: "Escríbeme por LinkedIn",
+      cta: "Escríbeme por WhatsApp",
       headAlt: "Jesús de perfil, mordiendo el aire",
     },
     footer: {
@@ -200,7 +200,7 @@ export const COPY: Localized<Copy> = {
       titleA: "Shall we",
       titleB: "build it?",
       body: "If you're looking for someone who designs the boundaries before writing the first line, and laughs while doing it, send me a message. I reply fast. Tilín.",
-      cta: "Message me on LinkedIn",
+      cta: "Message me on WhatsApp",
       headAlt: "Jesús in profile, biting the air",
     },
     footer: {

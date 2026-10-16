@@ -4,14 +4,15 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useMemo, useRef } from "react";
 import { liveProjectsFor, type LiveProject } from "@/models/live.model";
-import { LINKEDIN_URL } from "@/models/profile.model";
 import { useCopy } from "@/viewmodels/LocaleProvider";
+import { useQuoteViewModel } from "@/viewmodels/useQuoteViewModel";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 const host = (url: string) => new URL(url).host;
 
 export function LiveSection() {
   const { locale, t } = useCopy();
+  const quote = useQuoteViewModel();
   const projects = useMemo(() => liveProjectsFor(locale), [locale]);
   const [featured, ...rest] = projects;
   const sites = rest.filter((p) => p.shot);
@@ -74,7 +75,7 @@ export function LiveSection() {
             <p className="mt-4 max-w-[46ch] font-medium">{t.live.ctaBody}</p>
           </div>
           <motion.a
-            href={LINKEDIN_URL}
+            href={quote.general}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04, rotate: -1 }}
@@ -150,6 +151,7 @@ function AppCard({ project: p, className = "" }: { project: LiveProject; classNa
 
 function ProjectInfo({ project: p }: { project: LiveProject }) {
   const { t } = useCopy();
+  const quote = useQuoteViewModel();
   return (
     <div>
       <p className="flex flex-wrap items-center gap-3 text-sm font-bold">
@@ -193,7 +195,7 @@ function ProjectInfo({ project: p }: { project: LiveProject }) {
           <Arrow />
         </a>
         <a
-          href={LINKEDIN_URL}
+          href={quote.forProject(p.name)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-11 items-center font-bold text-tinta underline decoration-violeta decoration-2 underline-offset-4 hover:text-violeta"

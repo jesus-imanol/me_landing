@@ -2,13 +2,15 @@
 
 import { motion } from "motion/react";
 import { useRef } from "react";
-import { LINKEDIN_URL, SOCIALS } from "@/models/profile.model";
+import { SOCIALS } from "@/models/profile.model";
 import { useCopy } from "@/viewmodels/LocaleProvider";
+import { useQuoteViewModel } from "@/viewmodels/useQuoteViewModel";
 import { ChompHead } from "@/views/motion/ChompHead";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 export function ContactSection() {
   const { t } = useCopy();
+  const quote = useQuoteViewModel();
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -47,7 +49,7 @@ export function ContactSection() {
           <p className="mt-6 max-w-[50ch] text-lg text-humo">{t.contact.body}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <motion.a
-              href={LINKEDIN_URL}
+              href={quote.general}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, rotate: -1.5 }}
@@ -58,7 +60,7 @@ export function ContactSection() {
               {t.contact.cta}
             </motion.a>
             <ul className="flex flex-wrap gap-4">
-              {SOCIALS.filter((s) => s.href !== LINKEDIN_URL).map((s) => (
+              {SOCIALS.map((s) => (
                 <li key={s.href}>
                   <a
                     href={s.href}
