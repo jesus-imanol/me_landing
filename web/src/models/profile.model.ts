@@ -10,7 +10,7 @@ export const PROFILE = {
     "Construyo software como se construye algo que tiene que durar: primero la estructura, luego los detalles. Backend con Go, Node.js y Supabase; cliente con React, Next.js, Vue y Flutter.",
   sideNote: "Escribí un compilador por diversión. Sí, por diversión.",
   domains: ["Fintech", "E-commerce", "IoT", "Web3"],
-  avatar: "/img/chomp/0.webp",
+  avatar: "/img/frente-flat/1.webp",
 } as const;
 
 export const SOCIALS: SocialLink[] = [

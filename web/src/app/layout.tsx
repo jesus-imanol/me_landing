@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Anton_SC, Plus_Jakarta_Sans } from "next/font/google";
 import { PROFILE } from "@/models/profile.model";
-import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_TITLE, SITE_URL } from "@/models/seo.model";
-import { personJsonLd } from "@/services/seo.service";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE, SITE_URL } from "@/models/seo.model";
+import { siteJsonLd } from "@/services/seo.service";
 import { JsonLd } from "@/views/components/JsonLd";
 import { SiteFooter } from "@/views/components/SiteFooter";
 import { SiteHeader } from "@/views/components/SiteHeader";
@@ -15,23 +15,50 @@ const jakarta = Plus_Jakarta_Sans({
   style: ["normal", "italic"],
 });
 
+const FULL_NAME = `${PROFILE.name} ${PROFILE.lastName}`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: SITE_TITLE, template: `%s · ${PROFILE.name}` },
+  title: { default: SITE_TITLE, template: `%s · ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: SITE_KEYWORDS,
-  authors: [{ name: `${PROFILE.name} ${PROFILE.lastName}`, url: SITE_URL }],
-  creator: `${PROFILE.name} ${PROFILE.lastName}`,
+  authors: [{ name: FULL_NAME, url: SITE_URL }],
+  creator: FULL_NAME,
+  publisher: FULL_NAME,
+  category: "technology",
   alternates: { canonical: "/" },
+  formatDetection: { telephone: false, address: false, email: false },
+  // La imagen de redes la genera app/opengraph-image.tsx; Next la agrega sola a og:image y twitter:image
   openGraph: {
     type: "profile",
     locale: "es_MX",
+    siteName: SITE_NAME,
     url: "/",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: PROFILE.avatar, width: 398, height: 520, alt: "Jesús Imanol de perfil" }],
+    firstName: PROFILE.name,
+    lastName: PROFILE.lastName,
+    username: PROFILE.handle,
   },
-  twitter: { card: "summary", title: SITE_TITLE, description: SITE_DESCRIPTION, images: [PROFILE.avatar] },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+  // Código de Google Search Console (Propiedad → Verificar → Etiqueta HTML)
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  other: {
+    "geo.region": "MX-CHP",
+    "geo.placename": "Chiapas",
+  },
 };
 
 export const viewport: Viewport = {
@@ -43,7 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-MX" className={`${anton.variable} ${jakarta.variable} antialiased`}>
       <body className="min-h-dvh overflow-x-clip">
-        <JsonLd data={personJsonLd()} />
+        <JsonLd data={siteJsonLd()} />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
