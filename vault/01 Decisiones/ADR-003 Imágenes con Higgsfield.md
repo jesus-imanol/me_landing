@@ -18,8 +18,15 @@ fecha: 2026-10-15
 
 Hoja original: `raw/chomp/sheet-b.png` (job `de66ef23…`). La alternativa A (`c660c7d3…`) quedó en `raw/chomp/sheet-a.png`.
 
+## Objetos de proyectos: renders 3D estilo "tech toy" (vigente)
+Referencia de Jesús: renders 3D mate con piezas pixeladas (cursor, monedas, cubo), morado con lima.
+- Prompt base: plástico mate y arcilla, bordes redondeados, piezas voxel/pixel-art, luz de estudio suave. Paleta estricta #5B47F0, lavanda, blanco roto, carbón y lima #D7F23A. Sin texto, sin logos, sin fondo.
+- Proyectos: `*-3d.webp` (el sufijo rompe la caché de imágenes de Next con respecto a la tanda anterior).
+- Piezas sueltas `px-bug`, `px-coin`, `px-cursor`, `px-brace`: flotan alrededor de la cabeza en el hero (el bicho queda frente a la boca) y en "Cómo pienso".
+- Originales en `raw/v3/`.
+
 ## v1: caricaturas (descartada)
 Jesús flotando, con laptop, con plano, saludando, sarcástico y el avatar de GitHub. Se quitaron del sitio. Siguen en `raw/` y en `04 Assets/`.
 
-> [!todo] Pendiente
-> Los objetos de los proyectos (ConoceMex, Monii, CineSnacks, Cilantro, Lambi, Secret Event) son de la tanda v1. Falta decidir si se rehacen en el estilo nuevo.
+> [!done] Resuelto
+> Los objetos de los proyectos ya se rehicieron en estilo 3D (ver arriba).

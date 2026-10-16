@@ -34,7 +34,7 @@ export function ProjectsSection() {
     <section id="proyectos" ref={root} className="mx-auto max-w-[1400px] px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-naranja">Lo que he construido</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Lo que he construido</p>
           <h2 className="display mt-3 text-[clamp(3.2rem,8vw,6.5rem)]">
             Proyectos <span className="coqueto normal-case">con dientes</span>
           </h2>
@@ -55,7 +55,7 @@ export function ProjectsSection() {
                   {active && (
                     <motion.span
                       layoutId="area-pill"
-                      className="absolute inset-0 rounded-full bg-naranja"
+                      className="absolute inset-0 rounded-full bg-violeta"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -83,7 +83,7 @@ export function ProjectsSection() {
           >
             {vm.minor.map((p) => (
               <li key={p.slug} className="grid gap-2 py-6 md:grid-cols-[6rem_1fr_1.4fr] md:items-baseline md:gap-8">
-                <span className="font-bold text-naranja">{p.year}</span>
+                <span className="font-bold text-violeta">{p.year}</span>
                 <span className="display text-3xl">{p.name}</span>
                 <span className="text-humo">
                   {p.summary} <em className="font-semibold not-italic text-tinta">{p.quip}</em>
@@ -101,7 +101,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
   return (
     <article data-project data-side={side} className="group grid items-center gap-8 md:grid-cols-2 md:gap-16">
       <div className={`relative ${side === "left" ? "md:order-2" : ""}`}>
-        <div className="absolute inset-[10%] rounded-full bg-durazno transition-transform duration-700 group-hover:scale-110" />
+        <div className="absolute inset-[10%] rounded-full bg-niebla transition-transform duration-700 group-hover:scale-110" />
         <motion.div
           data-art
           className="relative mx-auto w-[78%] max-w-[440px]"
@@ -117,14 +117,14 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
 
       <div>
         <p data-copy className="flex flex-wrap items-center gap-3 text-sm font-bold">
-          <span className="rounded-full bg-naranja px-3 py-1 text-papel">{p.year}</span>
+          <span className="rounded-full bg-lima px-3 py-1 text-tinta">{p.year}</span>
           <span className="text-humo">{p.role}</span>
         </p>
         <h3 data-copy className="display mt-4 text-[clamp(3rem,7vw,5.5rem)]">
           {p.name}
         </h3>
         {p.org && (
-          <p data-copy className="mt-1 font-semibold text-brasa">
+          <p data-copy className="mt-1 font-semibold text-indigo">
             {p.org}
           </p>
         )}
@@ -144,7 +144,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
             href={p.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-naranja underline decoration-2 underline-offset-4 hover:text-brasa"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-violeta underline decoration-2 underline-offset-4 hover:text-indigo"
           >
             Verlo en vivo
             <svg aria-hidden viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.4}>

@@ -12,7 +12,7 @@ export function GithubSection({ snapshot }: Props) {
       <Reveal className="mx-auto max-w-[1400px]">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p data-reveal className="text-sm font-bold uppercase tracking-[0.2em] text-mandarina">
+            <p data-reveal className="text-sm font-bold uppercase tracking-[0.2em] text-lavanda">
               Open source
             </p>
             <h2 data-reveal className="display mt-3 text-[clamp(3rem,7vw,5.8rem)]">
@@ -21,7 +21,7 @@ export function GithubSection({ snapshot }: Props) {
           </div>
           {snapshot.publicRepos !== null && (
             <p data-reveal className="text-lg text-papel/70">
-              <span className="display text-5xl text-naranja">{snapshot.publicRepos}</span> repos públicos en GitHub
+              <span className="display text-5xl text-lima">{snapshot.publicRepos}</span> repos públicos en GitHub
             </p>
           )}
         </div>
@@ -36,7 +36,7 @@ export function GithubSection({ snapshot }: Props) {
                 className="group flex h-full flex-col gap-2 p-6 transition-colors hover:bg-papel/5 md:p-8"
               >
                 <span className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-lg font-bold text-mandarina group-hover:text-naranja">{r.name}</span>
+                  <span className="font-mono text-lg font-bold text-lavanda group-hover:text-lima">{r.name}</span>
                   <span className="shrink-0 rounded-full border border-papel/20 px-3 py-1 text-xs font-semibold text-papel/70">
                     {r.stack}
                   </span>
@@ -57,7 +57,7 @@ export function GithubSection({ snapshot }: Props) {
                     href={r.homepage ?? r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-papel/15 px-4 text-sm font-semibold transition-colors hover:border-naranja hover:text-naranja"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-papel/15 px-4 text-sm font-semibold transition-colors hover:border-violeta hover:text-violeta"
                   >
                     {r.name}
                     <span className="text-papel/50">

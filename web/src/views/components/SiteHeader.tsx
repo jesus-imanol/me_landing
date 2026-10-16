@@ -31,19 +31,19 @@ export function SiteHeader() {
     >
       <nav
         className={`mx-auto flex max-w-[1400px] items-center justify-between rounded-full px-4 py-2 transition-[background-color,box-shadow] duration-300 md:px-6 ${
-          solid ? "bg-papel/85 shadow-[0_10px_30px_-12px_rgb(194_65_12/0.25)] backdrop-blur-md" : "bg-transparent"
+          solid ? "bg-papel/85 shadow-[0_10px_30px_-12px_rgb(58_43_184/0.25)] backdrop-blur-md" : "bg-transparent"
         }`}
         aria-label="Principal"
       >
         <a href="#inicio" className="display text-2xl tracking-wide" aria-label="Inicio">
-          Jesús<span className="text-naranja">.</span>dev
+          Jesús<span className="text-violeta">.</span>dev
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="rounded-full px-4 py-2.5 text-sm font-semibold text-humo transition-colors hover:bg-durazno hover:text-tinta"
+                className="rounded-full px-4 py-2.5 text-sm font-semibold text-humo transition-colors hover:bg-niebla hover:text-tinta"
               >
                 {item.label}
               </a>

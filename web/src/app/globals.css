@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-crema: #fff8f0;
+  --color-fondo: #f5f3ff;
   --color-papel: #ffffff;
-  --color-durazno: #ffe6d0;
-  --color-naranja: #ff6b1a;
-  --color-mandarina: #ff9a52;
-  --color-brasa: #c2410c;
-  --color-tinta: #1f140d;
-  --color-humo: #7c6a5c;
-  --color-linea: #f2e2d2;
+  --color-niebla: #e6e1ff;
+  --color-violeta: #5b47f0;
+  --color-lavanda: #a497ff;
+  --color-lima: #d7f23a;
+  --color-indigo: #3a2bb8;
+  --color-tinta: #16132b;
+  --color-humo: #67638a;
+  --color-linea: #e2ddf7;
 
   --font-display: var(--font-anton-sc), "Arial Narrow", sans-serif;
   --font-body: var(--font-jakarta), system-ui, sans-serif;
@@ -26,20 +27,20 @@
 }
 
 html {
-  background: var(--color-crema);
+  background: var(--color-fondo);
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-crema);
+  background: var(--color-fondo);
   color: var(--color-tinta);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-naranja);
-  color: var(--color-papel);
+  background: var(--color-lima);
+  color: var(--color-tinta);
 }
 
 .display {
@@ -49,14 +50,14 @@ body {
   text-transform: uppercase;
 }
 
-/* El acento "coqueto": Jakarta itálica gruesa en naranja */
+/* El acento "coqueto": Jakarta itálica gruesa en violeta */
 .coqueto {
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 800;
   text-transform: none;
   letter-spacing: -0.03em;
-  color: var(--color-naranja);
+  color: var(--color-violeta);
 }
 
 /* Texto con contorno para los fondos tipográficos gigantes */
@@ -67,14 +68,14 @@ body {
 
 /* Imágenes sin fondo: sombra que sigue la silueta, no la caja */
 .cutout {
-  filter: drop-shadow(0 24px 30px rgb(194 65 12 / 0.18));
+  filter: drop-shadow(0 24px 30px rgb(58 43 184 / 0.18));
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* Sol naranja detrás del personaje */
+/* Sol violeta detrás del personaje */
 .sun {
-  background: radial-gradient(circle at 50% 45%, var(--color-mandarina) 0%, var(--color-naranja) 45%, transparent 70%);
+  background: radial-gradient(circle at 50% 45%, var(--color-lavanda) 0%, var(--color-violeta) 45%, transparent 70%);
   opacity: 0.9;
 }
 

@@ -38,9 +38,9 @@ export function ContactSection() {
     <section id="contacto" ref={root} className="relative overflow-hidden px-4 pt-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="mx-auto grid max-w-[1400px] items-end gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
         <div className="pb-[clamp(3rem,8vw,7rem)]">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-naranja">¿Y ahora qué?</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">¿Y ahora qué?</p>
           <h2 data-shout className="display mt-3 origin-left text-[clamp(3.6rem,9vw,8.5rem)]">
-            ¿Lo <span className="text-naranja">construimos?</span>
+            ¿Lo <span className="text-violeta">construimos?</span>
           </h2>
           <p className="mt-6 max-w-[50ch] text-lg text-humo">
             Si buscas a alguien que diseñe los límites antes de escribir la primera línea, y que además se ría mientras
@@ -54,7 +54,7 @@ export function ContactSection() {
               whileHover={{ scale: 1.05, rotate: -1.5 }}
               whileTap={{ scale: 0.95, y: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 16 }}
-              className="inline-flex min-h-14 items-center rounded-full bg-naranja px-8 text-lg font-bold text-papel shadow-[0_14px_30px_-12px_rgb(255_107_26/0.7)]"
+              className="inline-flex min-h-14 items-center rounded-full bg-violeta px-8 text-lg font-bold text-papel shadow-[0_14px_30px_-12px_rgb(91_71_240/0.7)]"
             >
               Escríbeme por LinkedIn
             </motion.a>
@@ -65,7 +65,7 @@ export function ContactSection() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-humo underline decoration-naranja decoration-2 underline-offset-4 hover:text-tinta"
+                    className="font-semibold text-humo underline decoration-violeta decoration-2 underline-offset-4 hover:text-tinta"
                   >
                     {s.label}
                   </a>

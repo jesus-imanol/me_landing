@@ -20,7 +20,7 @@ export function TilinSection() {
   return (
     <section id="tilin" className="relative overflow-x-clip bg-papel px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="mx-auto max-w-[1400px]">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-naranja">Mi palabra favorita (y mi comida favorita)</p>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Mi palabra favorita (y mi comida favorita)</p>
         <div className="mt-3">
           {/* Al bajar, Jesús se come TILÍN letra por letra; al subir, la devuelve */}
           <TextChomper
@@ -69,7 +69,7 @@ export function TilinSection() {
                     animate={{ scale: 1, opacity: 1, x: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ type: "spring", stiffness: 500, damping: 15 }}
-                    className="rounded-2xl bg-durazno px-4 py-2 font-bold text-brasa"
+                    className="rounded-2xl bg-niebla px-4 py-2 font-bold text-indigo"
                     role="status"
                   >
                     {vm.reaction}

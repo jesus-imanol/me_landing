@@ -3,7 +3,7 @@ tags: [inicio]
 ---
 # Jesús Dev: hub del proyecto
 
-Portafolio personal de **Jesús Imanol Castillo**. Objetivo: venderse como dev con un sitio alegre, naranja con blanco, que se recuerde. El protagonista es su caricatura dentuda.
+Portafolio personal de **Jesús Imanol Castillo**. Objetivo: venderse como dev con un sitio alegre, violeta con lima, que se recuerde. El protagonista es su caricatura dentuda.
 
 ## Mapa
 - Decisiones: [[ADR-001 Stack Next.js + MVVM]] · [[ADR-002 Tres motores de animación]] · [[ADR-003 Imágenes con Higgsfield]] · [[ADR-004 Datos de GitHub en vivo]]

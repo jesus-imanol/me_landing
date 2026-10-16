@@ -1,13 +1,17 @@
-/** Ilustraciones de Higgsfield (PNG sin fondo → WebP recortado). Ver vault: ADR-003. */
+/** Renders 3D de Higgsfield (PNG sin fondo → WebP recortado). Ver vault: ADR-003. */
 export type Art = { src: string; width: number; height: number; alt: string };
 
 export const ART = {
-  conocemex: { src: "/img/conocemex.webp", width: 900, height: 900, alt: "Celular con mapa, pin naranja y pirámide" },
-  monii: { src: "/img/monii.webp", width: 882, height: 855, alt: "Celular con código QR, monedas y café" },
-  cinesnacks: { src: "/img/cinesnacks.webp", width: 584, height: 900, alt: "Dispensador de palomitas con tarjeta NFC" },
-  cilantro: { src: "/img/cilantro.webp", width: 653, height: 900, alt: "Maceta de cilantro con sensor IoT" },
-  lambi: { src: "/img/lambi.webp", width: 867, height: 900, alt: "Nube con servidor y cohete despegando" },
-  secretEvent: { src: "/img/secret-event.webp", width: 900, height: 684, alt: "Cubos de blockchain con una máscara anónima" },
+  conocemex: { src: "/img/conocemex-3d.webp", width: 900, height: 687, alt: "Celular con mapa, pin pixelado y pirámide de cubos" },
+  monii: { src: "/img/monii-3d.webp", width: 853, height: 877, alt: "Terminal de pago con código QR y monedas pixeladas" },
+  cinesnacks: { src: "/img/cinesnacks-3d.webp", width: 691, height: 900, alt: "Máquina de palomitas con lector de tarjeta sin contacto" },
+  cilantro: { src: "/img/cilantro-3d.webp", width: 563, height: 900, alt: "Maceta con cilantro pixelado y un sensor IoT" },
+  lambi: { src: "/img/lambi-3d.webp", width: 787, height: 900, alt: "Nube con servidor y un cursor pixelado despegando" },
+  secretEvent: { src: "/img/secret-event-3d.webp", width: 782, height: 871, alt: "Cubo con candado pixelado y una máscara anónima" },
+  pxBug: { src: "/img/px-bug.webp", width: 480, height: 451, alt: "Bicho pixelado" },
+  pxCoin: { src: "/img/px-coin.webp", width: 411, height: 480, alt: "Moneda pixelada con carita feliz" },
+  pxCursor: { src: "/img/px-cursor.webp", width: 311, height: 480, alt: "Cursor pixelado" },
+  pxBrace: { src: "/img/px-brace.webp", width: 210, height: 480, alt: "Llave de código pixelada" },
 } satisfies Record<string, Art>;
 
 export type ArtKey = keyof typeof ART;
