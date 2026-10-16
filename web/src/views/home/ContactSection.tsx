@@ -66,7 +66,7 @@ export function ContactSection() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-humo underline decoration-violeta decoration-2 underline-offset-4 hover:text-tinta"
+                    className="inline-flex min-h-11 items-center font-semibold text-humo underline decoration-violeta decoration-2 underline-offset-4 hover:text-tinta"
                   >
                     {s.label}
                   </a>
