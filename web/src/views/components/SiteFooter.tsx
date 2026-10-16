@@ -9,7 +9,7 @@ export function SiteFooter() {
             {PROFILE.name} <span className="text-violeta">{PROFILE.lastName}</span>
           </p>
           <p className="mt-2 max-w-md text-sm text-humo">
-            Hecho con Next.js, GSAP, anime.js y Motion. Estructura primero, dientes después.
+            Hecho con Next.js, GSAP, anime.js y Motion. Estructura primero, tilín después.
           </p>
         </div>
         <ul className="flex flex-wrap gap-2">

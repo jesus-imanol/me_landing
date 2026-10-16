@@ -74,7 +74,8 @@ export const ChompHead = forwardRef<ChompHeadHandle, Props>(function ChompHead(
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}
       aria-hidden={alt ? undefined : true}
-      className={`relative block aspect-[398/520] ${flip ? "-scale-x-100" : ""} ${className}`}
+      style={{ aspectRatio: `${CHOMP.width} / ${CHOMP.height}` }}
+      className={`relative block ${flip ? "-scale-x-100" : ""} ${className}`}
     >
       {CHOMP.frames.map((src, i) => (
         <Image

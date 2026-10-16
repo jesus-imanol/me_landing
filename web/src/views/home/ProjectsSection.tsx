@@ -36,7 +36,7 @@ export function ProjectsSection() {
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Lo que he construido</p>
           <h2 className="display mt-3 text-[clamp(3.2rem,8vw,6.5rem)]">
-            Proyectos <span className="coqueto normal-case">con dientes</span>
+            Proyectos <span className="coqueto normal-case">con tilín</span>
           </h2>
         </div>
 

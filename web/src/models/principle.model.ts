@@ -19,7 +19,7 @@ export const PRINCIPLES: Principle[] = [
   {
     title: "Los fundamentos duran más que los frameworks.",
     body: "Las herramientas cambian cada año; estructuras de datos, diseño y trade-offs no.",
-    aside: "Escribí un compilador. Los frameworks nuevos me dan risa (con dientes).",
+    aside: "Escribí un compilador. Los frameworks nuevos me dan risa.",
   },
   {
     title: "Las herramientas amplifican el criterio, no lo reemplazan.",

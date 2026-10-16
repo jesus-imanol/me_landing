@@ -29,8 +29,9 @@ export function HeroSection() {
     () => {
       if (prefersReducedMotion()) return;
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-      tl.from("[data-hero-line]", { yPercent: 110, duration: 1.2, stagger: 0.1 })
-        .from("[data-hero-photo]", { yPercent: 40, opacity: 0, duration: 1.4, ease: "power4.out" }, 0.25)
+      // Las letras caen una por una y rebotan; Jesús sube con un estirón y se asienta
+      tl.from("[data-letter]", { yPercent: -160, rotate: () => gsap.utils.random(-30, 30), opacity: 0, duration: 1.1, stagger: 0.05, ease: "bounce.out" })
+        .from("[data-hero-photo]", { yPercent: 50, scaleY: 0.82, scaleX: 1.08, opacity: 0, duration: 1.3, ease: "elastic.out(1, 0.55)", transformOrigin: "50% 100%" }, 0.35)
         .from("[data-hero-tag]", { y: -120, rotate: 25, opacity: 0, duration: 1.2, ease: "elastic.out(1, 0.6)" }, 0.8)
         .from("[data-hero-copy]", { y: 24, opacity: 0, duration: 0.8, stagger: 0.08 }, 0.7)
         .from("[data-px]", { scale: 0, rotate: -40, duration: 0.9, stagger: 0.1, ease: "back.out(2.4)" }, 0.9);
@@ -45,6 +46,17 @@ export function HeroSection() {
           repeat: -1,
           delay: i * 0.2,
         });
+      });
+
+      // Cada tanto el nombre hace "la ola"
+      gsap.to("[data-letter]", {
+        keyframes: { y: [0, -28, 0], scaleY: [1, 1.08, 1] },
+        duration: 0.7,
+        ease: "sine.inOut",
+        stagger: { each: 0.06 },
+        repeat: -1,
+        repeatDelay: 3.2,
+        delay: 2.4,
       });
 
       // Respira: un leve vaivén que lo hace sentir vivo entre gesto y gesto
@@ -81,16 +93,16 @@ export function HeroSection() {
         {/* Nombre gigante, detrás */}
         <motion.h1 style={vm.layers.back} className="relative z-0 px-2 text-center">
           <span data-hero-name className="display block text-[clamp(5.5rem,23vw,24rem)] leading-[0.8]">
-            <span className="block overflow-hidden pt-[0.12em]">
-              <span data-hero-line className="block">
-                Jesús
+            <span className="sr-only">Jesús Imanol</span>
+            {["Jesús", "Imanol"].map((word, w) => (
+              <span key={word} aria-hidden className={`block pt-[0.12em] ${w === 1 ? "text-violeta" : ""}`}>
+                {Array.from(word).map((ch, i) => (
+                  <span key={i} data-letter className="inline-block origin-bottom will-change-transform">
+                    {ch}
+                  </span>
+                ))}
               </span>
-            </span>
-            <span className="block overflow-hidden pt-[0.12em]">
-              <span data-hero-line className="block text-violeta">
-                Imanol
-              </span>
-            </span>
+            ))}
           </span>
         </motion.h1>
 
@@ -150,7 +162,7 @@ export function HeroSection() {
           <div className="md:max-w-[21rem] md:rounded-md md:border-2 md:border-tinta md:bg-papel md:p-4 md:shadow-[6px_6px_0_var(--color-violeta)]">
             <p data-hero-copy className="text-[clamp(1.15rem,1.6vw,1.4rem)] font-semibold leading-snug">
               Full stack que construye <span className="coqueto">con estructura</span> primero… y{" "}
-              <span className="coqueto">con dientes</span> después.
+              <span className="coqueto">con estilo</span> después.
             </p>
             <p data-hero-copy className="mt-3 text-sm leading-relaxed text-humo">
               {PROFILE.school}

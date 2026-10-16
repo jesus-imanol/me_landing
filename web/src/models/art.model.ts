@@ -16,18 +16,18 @@ export const ART = {
 
 export type ArtKey = keyof typeof ART;
 
-/** Cuadros de la mordida (cabeza de perfil mirando a la derecha). La boca queda en ~95% x, ~64% y. */
+/** Cuadros de la mordida (cabeza de perfil mirando a la derecha). La boca queda en ~93% x, ~60% y. */
 export const CHOMP = {
-  frames: ["/img/chomp/0.webp", "/img/chomp/1.webp", "/img/chomp/2.webp", "/img/chomp/3.webp"],
-  width: 398,
-  height: 520,
-  mouthX: 0.95,
-  mouthY: 0.64,
+  frames: ["/img/chomp-flat/0.webp", "/img/chomp-flat/1.webp", "/img/chomp-flat/2.webp", "/img/chomp-flat/3.webp"],
+  width: 400,
+  height: 509,
+  mouthX: 0.93,
+  mouthY: 0.6,
 } as const;
 
-/** Gestos de Jesús de frente: 0 sonrisa, 1 dientes, 2 carcajada, 3 guiño (alineados abajo al centro). */
+/** Gestos de Jesús de frente: 0 sonrisa, 1 sonrisa abierta, 2 carcajada, 3 saludo con guiño (alineados abajo al centro). */
 export const FRENTE = {
-  frames: ["/img/frente/0.webp", "/img/frente/1.webp", "/img/frente/2.webp", "/img/frente/3.webp"],
-  width: 720,
-  height: 882,
+  frames: ["/img/frente-flat/0.webp", "/img/frente-flat/1.webp", "/img/frente-flat/2.webp", "/img/frente-flat/3.webp"],
+  width: 760,
+  height: 809,
 } as const;

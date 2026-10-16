@@ -13,7 +13,7 @@ Fuente en código: `web/src/models/phrase.model.ts` (frases rotativas, burbujas 
 - Español mexicano, con lemas en inglés del README cuando suenan mejor así.
 
 ## Dónde aparece "tilín"
-- Burbuja del hero, que rota: "tilín", "¿contratas o qué?", "arquitectura primero", "dientes después".
+- Burbuja del hero, que rota: "tilín", "¿contratas o qué?", "arquitectura primero", "tilín después".
 - Sección TILÍN: letras que caen, frases que rotan y el botón "Hazle tilín", que se pone más sarcástico entre más le picas.
 - Cada proyecto tiene un `quip` que aparece al pasar el puntero.
 

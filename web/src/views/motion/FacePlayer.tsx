@@ -6,31 +6,39 @@ import { FRENTE } from "@/models/art.model";
 
 type Step = [frame: number, ms: number];
 
-// Ciclo en reposo: sonríe, enseña los dientes, guiña, y de vez en cuando se ríe
-const IDLE: Step[] = [
-  [0, 2000],
-  [1, 1300],
-  [3, 550],
-  [1, 700],
-  [0, 1600],
-  [2, 160],
-  [1, 110],
-  [2, 160],
-  [1, 110],
-  [2, 220],
-  [1, 1100],
+// Frames: 0 sonrisa · 1 sonrisa abierta · 2 carcajada · 3 saludo con guiño
+// Entrada: saluda dos veces
+const HELLO: Step[] = [
+  [3, 520],
+  [1, 160],
+  [3, 520],
+  [1, 900],
 ];
 
-// Al pasar el puntero (o tocar): carcajada y guiño
+// Ciclo en reposo: sonríe, se ríe de vez en cuando y vuelve a saludar
+const IDLE: Step[] = [
+  [0, 1800],
+  [1, 1200],
+  [2, 170],
+  [1, 120],
+  [2, 170],
+  [1, 120],
+  [2, 260],
+  [1, 1000],
+  [0, 1600],
+  [3, 700],
+  [1, 900],
+];
+
+// Al pasar el puntero (o tocar): carcajada y saludo
 const LAUGH: Step[] = [
   [2, 140],
   [1, 90],
   [2, 140],
   [1, 90],
-  [2, 140],
-  [1, 90],
   [2, 260],
-  [3, 700],
+  [3, 650],
+  [1, 400],
 ];
 
 /** Jesús de frente cambiando de gesto. Cambia el cuadro visible sin re-renderizar React. */
@@ -41,11 +49,18 @@ export function FacePlayer({ className = "", priority }: { className?: string; p
     const el = root.current;
     if (!el) return;
     const frames = Array.from(el.querySelectorAll<HTMLElement>("[data-frame]"));
-    const show = (i: number) => frames.forEach((f, k) => (f.style.opacity = k === i ? "1" : "0"));
+    let current = 0;
+    const show = (i: number) => {
+      frames.forEach((f, k) => (f.style.opacity = k === i ? "1" : "0"));
+      // Cada cambio de gesto lleva su rebote: el saludo se balancea y la risa se aplasta un poco
+      if (i !== current && i === 3) el.animate([{ rotate: "0deg" }, { rotate: "-3deg" }, { rotate: "2deg" }, { rotate: "0deg" }], { duration: 520, easing: "ease-in-out" });
+      if (i !== current && i === 2) el.animate([{ scale: "1 1" }, { scale: "1.03 0.97" }, { scale: "0.99 1.02" }, { scale: "1 1" }], { duration: 300, easing: "ease-out" });
+      current = i;
+    };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let timer = 0;
-    let script = IDLE;
+    let script = HELLO;
     let step = 0;
 
     const play = () => {
@@ -80,8 +95,9 @@ export function FacePlayer({ className = "", priority }: { className?: string; p
     <div
       ref={root}
       role="img"
-      aria-label="Jesús Imanol de frente, con los brazos cruzados, sonriendo y guiñando"
-      className={`pointer-events-auto relative aspect-[720/882] ${className}`}
+      aria-label="Ilustración de Jesús Imanol saludando y riéndose"
+      style={{ aspectRatio: `${FRENTE.width} / ${FRENTE.height}` }}
+      className={`pointer-events-auto relative origin-bottom ${className}`}
     >
       {FRENTE.frames.map((src, i) => (
         <Image

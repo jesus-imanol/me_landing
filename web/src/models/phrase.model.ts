@@ -12,7 +12,7 @@ export const TILIN_PHRASES = [
 export const CHOMP_STRIP = "bugs · espagueti · deadlines";
 export const CHOMP_STRIP_SHORT = "bugs · espagueti";
 
-export const HERO_BUBBLES = ["tilín", "¿contratas o qué?", "arquitectura primero", "dientes después"] as const;
+export const HERO_BUBBLES = ["tilín", "¿contratas o qué?", "arquitectura primero", "tilín después"] as const;
 
 export const MARQUEE_PHRASES = [
   "Tilín",

@@ -18,7 +18,15 @@ fecha: 2026-10-15
 
 Hoja original: `raw/chomp/sheet-b.png` (job `de66ef23…`). La alternativa A (`c660c7d3…`) quedó en `raw/chomp/sheet-a.png`.
 
-## Hero: Jesús de frente, animado (vigente)
+## Personaje: ilustración plana (vigente)
+Jesús pidió quitar los dientes de castor y que su imagen fuera "animada, no tan tipo piel". El personaje 3D (estilo película animada) no le gustó; se eligió **ilustración plana tipo vector**: colores sólidos, contornos limpios, sombra violeta, cuello de la polo en lima, dientes normales.
+- Frente: `web/public/img/frente-flat/0..3.webp` (0 sonrisa, 1 sonrisa abierta, 2 carcajada, 3 saludo con guiño). Alineados por el centro de la cabeza y abajo, para que el saludo no brinque. Job `2c872f30…`.
+- Perfil para la mordida: `web/public/img/chomp-flat/0..3.webp`. Job `afd54dcc…`.
+- Script de recorte: `raw/3d/slice.cjs`.
+- El hero entra saludando (guion HELLO), las letras del nombre caen con rebote y cada tanto hacen "la ola".
+- Los textos con "dientes" se cambiaron ("con estilo después", "Proyectos con tilín").
+
+## Hero: Jesús de frente, foto real (reemplazada)
 Jesús pidió estar de frente, delante de "JESÚS IMANOL" en gigante, y animado.
 - Hoja 2×2 de gestos con la misma pose (brazos cruzados, polo negra): 0 sonrisa, 1 dientes de castor, 2 carcajada, 3 guiño. Job `d7e94cc7…`, original en `raw/frente/sheet-2.png`.
 - Recortados y alineados abajo al centro sin reescalar: `web/public/img/frente/0..3.webp` (720×882).
