@@ -2,11 +2,6 @@
 export type Art = { src: string; width: number; height: number; alt: string };
 
 export const ART = {
-  flotando: { src: "/img/jesus-flotando.webp", width: 578, height: 900, alt: "Caricatura de Jesús flotando con los brazos abiertos" },
-  laptop: { src: "/img/jesus-laptop.webp", width: 559, height: 900, alt: "Jesús flotando con su laptop" },
-  tilin: { src: "/img/jesus-tilin.webp", width: 819, height: 900, alt: "Jesús con cara sarcástica apuntando con el dedo" },
-  blueprint: { src: "/img/jesus-blueprint.webp", width: 800, height: 900, alt: "Jesús mostrando un plano de arquitectura" },
-  saludo: { src: "/img/jesus-saludo.webp", width: 863, height: 900, alt: "Jesús riéndose y saludando con las dos manos" },
   conocemex: { src: "/img/conocemex.webp", width: 900, height: 900, alt: "Celular con mapa, pin naranja y pirámide" },
   monii: { src: "/img/monii.webp", width: 882, height: 855, alt: "Celular con código QR, monedas y café" },
   cinesnacks: { src: "/img/cinesnacks.webp", width: 584, height: 900, alt: "Dispensador de palomitas con tarjeta NFC" },
@@ -16,3 +11,12 @@ export const ART = {
 } satisfies Record<string, Art>;
 
 export type ArtKey = keyof typeof ART;
+
+/** Cuadros de la mordida (cabeza de perfil mirando a la derecha). La boca queda en ~95% x, ~64% y. */
+export const CHOMP = {
+  frames: ["/img/chomp/0.webp", "/img/chomp/1.webp", "/img/chomp/2.webp", "/img/chomp/3.webp"],
+  width: 398,
+  height: 520,
+  mouthX: 0.95,
+  mouthY: 0.64,
+} as const;

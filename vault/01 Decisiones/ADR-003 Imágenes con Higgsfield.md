@@ -1,26 +1,25 @@
 ---
 tags: [adr, assets]
-estado: aceptada
+estado: aceptada (revisada)
 fecha: 2026-10-15
 ---
 # ADR-003 Imágenes con Higgsfield
 
-**Decisión:** todas las ilustraciones van **sin fondo** (`gpt_image_2_5`, `background: transparent`, calidad high), en el mismo estilo de caricatura aerografiada que el avatar original. Jesús siempre con **polo negra**.
+## v2: cabeza Pac-Man que se come el texto (vigente)
+**Feedback de Jesús:** las caricaturas aerografiadas se veían genéricas y "muy IA". Las letras 3D generadas tenían contornos de IA. Quería **comerse el texto real de la página**, como Pac-Man, y que se jugara con los dientes.
 
-Referencias para mantener el parecido: la selfie original y la primera caricatura (job `a391b7c8…`).
+**Decisión:**
+- Una sola hoja de 4 cuadros (2×2) generada en una sola imagen para que la cara sea idéntica en todos: cabeza **fotorrealista**, de perfil mirando a la derecha, con dientes de castor exagerados. Boca: cerrada, entreabierta, media y bien abierta. Sin fondo y sin letras en la imagen.
+- `sharp` corta los cuadrantes, recorta lo transparente y los alinea por la esquina superior izquierda. Salen en `web/public/img/chomp/0..3.webp` (398×520).
+- Las letras son **HTML real** (`TextChomper`): la cabeza avanza con GSAP y cada letra que queda detrás de la boca se encoge con anime.js y suelta migajas de su mismo color.
+  - `mode="loop"`: hero, "bugs · espagueti · deadlines"; se lo come y vuelve a crecer.
+  - `mode="scroll"`: sección TILÍN; al bajar se come la palabra y al subir la devuelve.
+- `ChompHead` cambia de cuadro sin re-render de React (secuencia 0-1-2-3-2-1).
 
-Proceso: PNG en `raw/` → `sharp` recorta los bordes transparentes (`trim`), redimensiona a 900px y exporta a WebP en `web/public/img`. Hoja de contacto: [[hoja-de-contacto.jpg]].
+Hoja original: `raw/chomp/sheet-b.png` (job `de66ef23…`). La alternativa A (`c660c7d3…`) quedó en `raw/chomp/sheet-a.png`.
 
-| Archivo | Uso |
-|---|---|
-| `jesus-flotando` | Hero, al centro, con los proyectos flotando alrededor |
-| `jesus-tilin` | Sección TILÍN (cara sarcástica, finger-guns) |
-| `jesus-blueprint` | "Cómo pienso", con el plano de arquitectura |
-| `jesus-laptop` | Stack |
-| `jesus-saludo` | Contacto |
-| `conocemex`, `monii`, `cinesnacks`, `cilantro`, `lambi`, `secret-event` | Un objeto por proyecto |
-| `avatar-github` | Foto de perfil: fondo naranja y polo negra (este sí lleva fondo, a propósito) |
+## v1: caricaturas (descartada)
+Jesús flotando, con laptop, con plano, saludando, sarcástico y el avatar de GitHub. Se quitaron del sitio. Siguen en `raw/` y en `04 Assets/`.
 
-Los bustos usan la clase `.fade-bottom` para que no terminen en un corte recto.
-
-Las medidas y los textos `alt` viven en `src/models/art.model.ts`.
+> [!todo] Pendiente
+> Los objetos de los proyectos (ConoceMex, Monii, CineSnacks, Cilantro, Lambi, Secret Event) son de la tanda v1. Falta decidir si se rehacen en el estilo nuevo.

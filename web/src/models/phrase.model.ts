@@ -8,6 +8,10 @@ export const TILIN_PHRASES = [
   "¿Contratarme? Tilín, tilín.",
 ] as const;
 
+/** Lo que Jesús se come en el hero: las malas prácticas */
+export const CHOMP_STRIP = "bugs · espagueti · deadlines";
+export const CHOMP_STRIP_SHORT = "bugs · espagueti";
+
 export const HERO_BUBBLES = ["tilín", "¿contratas o qué?", "arquitectura primero", "dientes después"] as const;
 
 export const MARQUEE_PHRASES = [

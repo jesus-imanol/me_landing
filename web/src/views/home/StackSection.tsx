@@ -1,9 +1,7 @@
 "use client";
 
 import { animate, onScroll, stagger } from "animejs";
-import { motion } from "motion/react";
 import { CERTIFICATIONS, STACK } from "@/models/stack.model";
-import { Cutout } from "@/views/components/Cutout";
 import { useAnime } from "@/views/motion/useAnime";
 
 export function StackSection() {
@@ -57,15 +55,6 @@ export function StackSection() {
         </div>
 
         <div className="flex flex-col gap-10 md:pt-20">
-          <motion.div
-            className="relative mx-auto w-[75%] max-w-[360px]"
-            animate={{ y: [0, -18, 0], rotate: [0, 1.5, 0] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="sun absolute inset-[6%] rounded-full opacity-60" />
-            <Cutout art="laptop" className="relative" />
-          </motion.div>
-
           <div>
             <h3 className="text-xs font-extrabold uppercase tracking-[0.2em] text-humo">Certificaciones</h3>
             <ul className="mt-3 divide-y divide-linea border-y border-linea">

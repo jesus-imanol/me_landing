@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     url: "/",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: PROFILE.avatar, width: 640, height: 640, alt: "Caricatura de Jesús Imanol" }],
+    images: [{ url: PROFILE.avatar, width: 398, height: 520, alt: "Jesús Imanol de perfil" }],
   },
   twitter: { card: "summary", title: SITE_TITLE, description: SITE_DESCRIPTION, images: [PROFILE.avatar] },
 };

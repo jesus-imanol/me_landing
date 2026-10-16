@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { PRINCIPLES } from "@/models/principle.model";
-import { Cutout } from "@/views/components/Cutout";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 export function PrinciplesSection() {
@@ -32,13 +31,6 @@ export function PrinciplesSection() {
           scrollTrigger: { trigger: el, start: "top 55%" },
         });
       });
-      // Jesús gira levemente el plano conforme avanzas
-      gsap.to("[data-blueprint]", {
-        rotate: 6,
-        y: -30,
-        ease: "none",
-        scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
-      });
     },
     { scope: root },
   );
@@ -51,9 +43,6 @@ export function PrinciplesSection() {
           <h2 className="display mt-3 text-[clamp(3rem,7vw,5.8rem)]">
             Systems over <span className="coqueto normal-case">snippets</span>
           </h2>
-          <div data-blueprint className="mx-auto mt-8 w-[80%] max-w-[420px]">
-            <Cutout art="blueprint" className="fade-bottom" />
-          </div>
         </div>
 
         <ol className="flex flex-col gap-14 md:pt-24">

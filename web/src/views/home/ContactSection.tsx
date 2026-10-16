@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useRef } from "react";
 import { LINKEDIN_URL, SOCIALS } from "@/models/profile.model";
-import { Cutout } from "@/views/components/Cutout";
+import { ChompHead } from "@/views/motion/ChompHead";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 export function ContactSection() {
@@ -74,9 +74,9 @@ export function ContactSection() {
             </ul>
           </div>
         </div>
-        <div data-wave className="relative mx-auto w-[80%] max-w-[440px]">
+        <div data-wave className="relative mx-auto w-[70%] max-w-[380px] pb-6">
           <div className="sun absolute inset-x-[5%] bottom-0 top-[10%] rounded-t-full opacity-70" />
-          <Cutout art="saludo" className="fade-bottom relative" />
+          <ChompHead flip autoChew fps={9} alt="Jesús de perfil, mordiendo el aire" className="relative" />
         </div>
       </div>
     </section>
