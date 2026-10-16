@@ -1,0 +1,32 @@
+import { PROFILE, SOCIALS } from "@/models/profile.model";
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-linea bg-papel px-4 py-10 md:px-8">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="display text-4xl">
+            {PROFILE.name} <span className="text-naranja">{PROFILE.lastName}</span>
+          </p>
+          <p className="mt-2 max-w-md text-sm text-humo">
+            Hecho con Next.js, GSAP, anime.js y Motion. Estructura primero, dientes después.
+          </p>
+        </div>
+        <ul className="flex flex-wrap gap-2">
+          {SOCIALS.map((s) => (
+            <li key={s.href}>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center rounded-full border border-linea px-4 text-sm font-semibold transition-colors hover:border-naranja hover:text-naranja"
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </footer>
+  );
+}

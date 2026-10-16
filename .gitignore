@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.vercel/
+.env*
+!.env.example
+.claude/
+*.log
+
+# Originales de Higgsfield (PNG pesados); los WebP optimizados viven en web/public/img
+raw/
+
+# Obsidian: estado local del editor
+vault/.obsidian/workspace*.json
+vault/.obsidian/cache

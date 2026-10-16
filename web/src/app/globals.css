@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-crema: #fff8f0;
+  --color-papel: #ffffff;
+  --color-durazno: #ffe6d0;
+  --color-naranja: #ff6b1a;
+  --color-mandarina: #ff9a52;
+  --color-brasa: #c2410c;
+  --color-tinta: #1f140d;
+  --color-humo: #7c6a5c;
+  --color-linea: #f2e2d2;
+
+  --font-display: var(--font-anton-sc), "Arial Narrow", sans-serif;
+  --font-body: var(--font-jakarta), system-ui, sans-serif;
+
+  --animate-wiggle: wiggle 2.4s ease-in-out infinite;
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-crema);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-crema);
+  color: var(--color-tinta);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-naranja);
+  color: var(--color-papel);
+}
+
+.display {
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+/* El acento "coqueto": Jakarta itálica gruesa en naranja */
+.coqueto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  color: var(--color-naranja);
+}
+
+/* Texto con contorno para los fondos tipográficos gigantes */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-linea);
+}
+
+/* Imágenes sin fondo: sombra que sigue la silueta, no la caja */
+.cutout {
+  filter: drop-shadow(0 24px 30px rgb(194 65 12 / 0.18));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Sol naranja detrás del personaje */
+.sun {
+  background: radial-gradient(circle at 50% 45%, var(--color-mandarina) 0%, var(--color-naranja) 45%, transparent 70%);
+  opacity: 0.9;
+}
+
+/* Grano fijo: textura sin costo de render, solo en pantallas grandes */
+@media (min-width: 768px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Bustos cortados a la altura del pecho: se desvanecen en vez de terminar en línea recta */
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+}
