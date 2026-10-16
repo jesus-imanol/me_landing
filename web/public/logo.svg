@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Jesús Imanol</title>
+  <defs>
+    <!-- La mordida de la esquina: el logo también se lo comieron -->
+    <mask id="bite">
+      <rect width="64" height="64" fill="#fff"/>
+      <circle cx="57" cy="7" r="11" fill="#000"/>
+    </mask>
+    <clipPath id="card">
+      <rect x="4" y="4" width="52" height="52" rx="12"/>
+    </clipPath>
+  </defs>
+  <g mask="url(#bite)">
+    <rect x="8" y="8" width="52" height="52" rx="12" fill="#5b47f0"/>
+    <rect x="4" y="4" width="52" height="52" rx="12" fill="#d7f23a" stroke="#16132b" stroke-width="3"/>
+  </g>
+  <circle cx="57" cy="7" r="12.5" fill="none" stroke="#16132b" stroke-width="3" clip-path="url(#card)" mask="url(#bite)"/>
+  <path d="M24 14H42V38A12 12 0 0 1 18 38V34H27V38A3 3 0 0 0 33 38V21H24Z" fill="#16132b"/>
+  <rect x="45" y="41" width="7" height="7" fill="#5b47f0"/>
+</svg>

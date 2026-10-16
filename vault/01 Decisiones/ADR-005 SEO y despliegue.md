@@ -12,7 +12,7 @@ Mismo patrón que carnitas-noyola (ADR-008 de ese vault).
 - Metadatos globales en `app/layout.tsx`: título "Jesús Imanol Castillo — Desarrollador Full Stack en Chiapas", descripción, keywords, canónica, Open Graph tipo `profile` (nombre, apellido, usuario), Twitter `summary_large_image`, `robots`/`googleBot` con vista previa grande, geo Chiapas y verificación de Search Console.
 - `robots.txt` (`app/robots.ts`), `sitemap.xml` (`app/sitemap.ts`, incluye las imágenes) y `manifest.webmanifest` (`app/manifest.ts`).
 - Imagen para redes `app/opengraph-image.tsx` (1200×630): nombre gigante en Anton SC, ticket lima y Jesús en ilustración plana. Lee `web/assets/` (fuente y PNGs); por eso `next.config.ts` tiene `outputFileTracingIncludes`.
-- Íconos `app/icon.png` (512, esquinas redondeadas) y `app/apple-icon.png` (180): cabeza de perfil sobre lima.
+- Logo: `web/public/logo.svg` ("J." en cuadro lima con borde, sombra violeta y una mordida en la esquina), hecho a mano en SVG. El componente `LogoMark` lo dibuja en header y footer. `app/icon.png` (512) y `app/apple-icon.png` (180) se generan desde ese SVG con sharp.
 - JSON-LD en un solo `@graph`: `Person` + `WebSite` + `ProfilePage` con cada proyecto como `CreativeWork`.
 
 **Despliegue:** Vercel, con Root Directory `web`.

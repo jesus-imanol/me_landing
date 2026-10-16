@@ -1,12 +1,16 @@
 import { PROFILE, SOCIALS } from "@/models/profile.model";
+import { LogoMark } from "./LogoMark";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-linea bg-papel px-4 py-10 md:px-8">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="display text-4xl">
-            {PROFILE.name} <span className="text-violeta">{PROFILE.lastName}</span>
+          <p className="display flex items-center gap-3 text-4xl">
+            <LogoMark className="size-12" />
+            <span>
+              {PROFILE.name} <span className="text-violeta">{PROFILE.lastName}</span>
+            </span>
           </p>
           <p className="mt-2 max-w-md text-sm text-humo">
             Hecho con Next.js, GSAP, anime.js y Motion. Estructura primero, tilín después.

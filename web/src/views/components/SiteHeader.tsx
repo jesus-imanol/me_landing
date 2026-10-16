@@ -3,6 +3,7 @@
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { LINKEDIN_URL } from "@/models/profile.model";
+import { LogoMark } from "./LogoMark";
 
 const NAV = [
   { href: "#proyectos", label: "Proyectos" },
@@ -35,8 +36,11 @@ export function SiteHeader() {
         }`}
         aria-label="Principal"
       >
-        <a href="#inicio" className="display text-2xl tracking-wide" aria-label="Inicio">
-          Jesús<span className="text-violeta">.</span>dev
+        <a href="#inicio" className="group flex items-center gap-2.5" aria-label="Inicio">
+          <LogoMark className="size-10 transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
+          <span className="display text-2xl tracking-wide">
+            Jesús<span className="text-violeta">.</span>dev
+          </span>
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => (
