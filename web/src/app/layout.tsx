@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anton_SC, Plus_Jakarta_Sans } from "next/font/google";
-import { PROFILE } from "@/models/profile.model";
+import { PROFILE, X_HANDLE } from "@/models/profile.model";
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE, SITE_URL } from "@/models/seo.model";
 import { siteJsonLd } from "@/services/seo.service";
 import { JsonLd } from "@/views/components/JsonLd";
@@ -43,6 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    creator: X_HANDLE,
+    site: X_HANDLE,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },

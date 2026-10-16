@@ -6,7 +6,7 @@ export const PROFILE = {
   handle: "jesus-imanol",
   /** Como lo buscan o le dicen. Va visible en la página y en el JSON-LD (alternateName). */
   nickname: "Chuy",
-  aliases: ["Chuy", "Chuy Castillo", "Jesús Castillo", "Jesus Castillo", "Jesús Imanol", "Jesus Imanol Castillo", "chuy7x", "chuysscc", "jesus-imanol"],
+  aliases: ["Chuy", "Chuy Castillo", "Jesús Castillo", "Jesus Castillo", "Jesús Imanol", "Jesus Imanol Castillo", "chuy7x", "chuysscc", "chuysszx", "jesuscast7z", "jesus-imanol"],
   role: "Full Stack Developer",
   school: "Ingeniería de Software · Universidad Politécnica de Chiapas",
   pitch:
@@ -20,7 +20,12 @@ export const SOCIALS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/jesus-imanol" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/jesus-imanol-castillo" },
   { label: "Instagram", href: "https://www.instagram.com/chuysscc/" },
+  { label: "X", href: "https://x.com/jesuscast7z" },
+  { label: "TikTok", href: "https://www.tiktok.com/@chuysszx" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61555328035149" },
 ];
+
+export const X_HANDLE = "@jesuscast7z";
 
 export const GITHUB_URL = SOCIALS[0].href;
 export const LINKEDIN_URL = SOCIALS[1].href;
