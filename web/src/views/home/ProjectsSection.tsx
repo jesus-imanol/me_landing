@@ -41,7 +41,7 @@ export function ProjectsSection() {
         </div>
 
         <LayoutGroup>
-          <div role="tablist" aria-label="Filtrar por área" className="flex flex-wrap gap-1 rounded-full bg-papel p-1.5 shadow-sm">
+          <div role="tablist" aria-label="Filtrar por área" className="flex flex-wrap gap-1 rounded-md border-2 border-tinta bg-papel p-1 shadow-[4px_4px_0_var(--color-tinta)]">
             {vm.filters.map((f) => {
               const active = vm.area === f.id;
               return (
@@ -50,12 +50,12 @@ export function ProjectsSection() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => vm.setArea(f.id)}
-                  className={`relative min-h-11 rounded-full px-4 text-sm font-bold transition-colors ${active ? "text-papel" : "text-humo hover:text-tinta"}`}
+                  className={`relative min-h-11 rounded-[4px] px-4 text-sm font-bold transition-colors ${active ? "text-papel" : "text-humo hover:text-tinta"}`}
                 >
                   {active && (
                     <motion.span
                       layoutId="area-pill"
-                      className="absolute inset-0 rounded-full bg-violeta"
+                      className="absolute inset-0 rounded-[4px] bg-violeta"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -117,7 +117,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
 
       <div>
         <p data-copy className="flex flex-wrap items-center gap-3 text-sm font-bold">
-          <span className="rounded-full bg-lima px-3 py-1 text-tinta">{p.year}</span>
+          <span className="rounded-[4px] border-2 border-tinta bg-lima px-2.5 py-0.5 text-tinta shadow-[3px_3px_0_var(--color-violeta)]">{p.year}</span>
           <span className="text-humo">{p.role}</span>
         </p>
         <h3 data-copy className="display mt-4 text-[clamp(3rem,7vw,5.5rem)]">
@@ -133,7 +133,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
         </p>
         <ul data-copy className="mt-6 flex flex-wrap gap-2">
           {p.stack.map((s) => (
-            <li key={s} className="rounded-full border border-linea bg-papel px-3 py-1 text-sm font-semibold">
+            <li key={s} className="rounded-[4px] border-2 border-tinta bg-papel px-3 py-1 text-sm font-bold shadow-[3px_3px_0_var(--color-tinta)] transition-colors hover:bg-lima">
               {s}
             </li>
           ))}

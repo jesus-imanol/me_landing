@@ -43,7 +43,7 @@ export function StackSection() {
                     <li
                       key={it}
                       data-chip
-                      className="cursor-default rounded-full border border-linea bg-papel px-4 py-2 font-semibold transition-colors hover:border-violeta hover:bg-violeta hover:text-papel"
+                      className="cursor-default rounded-[4px] border-2 border-tinta bg-papel px-4 py-2 font-bold shadow-[4px_4px_0_var(--color-tinta)] transition-[background-color,box-shadow,color] hover:bg-lima hover:shadow-[4px_4px_0_var(--color-violeta)]"
                     >
                       {it}
                     </li>
