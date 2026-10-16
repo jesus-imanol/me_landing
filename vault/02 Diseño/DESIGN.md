@@ -31,3 +31,9 @@ Ver [[ADR-002 Tres motores de animación]]. Siempre hay algo flotando (micro-loo
 
 ## 7. Prohibido
 Emojis, Inter, negro puro, brillos neón, morado de IA, métricas inventadas, "Scroll to explore", flechas que rebotan, clichés como "Elevate" o "Seamless".
+
+## Navegación sin "#" en la URL (2026-10-16)
+- Los links del menú siguen siendo anclas (`href="#proyectos"`) para que funcionen sin JavaScript, pero `views/components/CleanAnchors.tsx` intercepta el clic, desplaza suave hasta la sección y deja la URL limpia (`www.chuy7x.space`).
+- Si alguien entra con un link viejo (`/#proyectos`), lo lleva a la sección, quita el `#` y vuelve a apuntar mientras la página termina de cargar (deja de hacerlo si la persona hace scroll).
+- `section[id] { scroll-margin-top: 5.5rem }` para que el título no quede debajo del header fijo.
+- Test: `raw/tools/check-anchors.mjs`. Cada sección llega a 88 px del borde de arriba, con la URL sin `#`.

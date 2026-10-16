@@ -5,6 +5,7 @@ import { THEME_BOOT_SCRIPT } from "@/models/theme.model";
 import { siteJsonLd } from "@/services/seo.service";
 import { LocaleProvider } from "@/viewmodels/LocaleProvider";
 import { anton, jakarta } from "@/views/fonts";
+import { CleanAnchors } from "./CleanAnchors";
 import { JsonLd } from "./JsonLd";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
@@ -28,6 +29,7 @@ export function RootDocument({ locale, children }: { locale: Locale; children: R
       </head>
       <body className="min-h-dvh overflow-x-clip">
         <JsonLd data={siteJsonLd(locale)} />
+        <CleanAnchors />
         <LocaleProvider locale={locale}>
           <SiteHeader />
           <main>{children}</main>

@@ -57,6 +57,14 @@ html {
   overflow-x: clip;
 }
 
+/* Al saltar desde el menú, el título de la sección no queda debajo del header fijo */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+section[id]:focus {
+  outline: none;
+}
+
 body {
   background: var(--color-fondo);
   color: var(--color-tinta);
