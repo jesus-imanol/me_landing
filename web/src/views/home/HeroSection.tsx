@@ -8,17 +8,17 @@ import { CHOMP_STRIP, CHOMP_STRIP_SHORT } from "@/models/phrase.model";
 import { PROFILE } from "@/models/profile.model";
 import { useHeroViewModel } from "@/viewmodels/useHeroViewModel";
 import { Cutout } from "@/views/components/Cutout";
-import { ChompHead } from "@/views/motion/ChompHead";
+import { FacePlayer } from "@/views/motion/FacePlayer";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 import { TextChomper } from "@/views/motion/TextChomper";
 import { useAnime } from "@/views/motion/useAnime";
 
-/** Piezas pixeladas alrededor de la cabeza; el bicho flota justo frente a la boca */
+/** Piezas pixeladas alrededor de Jesús */
 const PIXELS: { art: ArtKey; className: string }[] = [
-  { art: "pxBug", className: "left-[0%] top-[50%] z-20 w-[17%]" },
-  { art: "pxCoin", className: "right-[0%] top-[14%] w-[15%]" },
-  { art: "pxCursor", className: "right-[6%] bottom-[6%] w-[11%]" },
-  { art: "pxBrace", className: "left-[12%] bottom-[2%] w-[7%]" },
+  { art: "pxBug", className: "left-[6%] top-[58%] w-[9%] md:left-[22%] md:w-[6%]" },
+  { art: "pxCoin", className: "right-[4%] top-[30%] w-[11%] md:right-[20%] md:w-[6%]" },
+  { art: "pxCursor", className: "right-[10%] bottom-[8%] w-[7%] md:right-[26%] md:w-[4%]" },
+  { art: "pxBrace", className: "left-[14%] bottom-[12%] w-[5%] md:left-[30%] md:w-[3%]" },
 ];
 
 export function HeroSection() {
@@ -29,14 +29,12 @@ export function HeroSection() {
     () => {
       if (prefersReducedMotion()) return;
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-      tl.from("[data-hero-line]", { yPercent: 110, duration: 1.1, stagger: 0.09 })
-        .from("[data-hero-copy]", { y: 24, opacity: 0, duration: 0.8, stagger: 0.08 }, "-=0.7")
-        .from("[data-hero-head]", { x: 260, rotate: 14, opacity: 0, duration: 1.5, ease: "elastic.out(1, 0.6)" }, 0.2)
-        .from("[data-hero-sun]", { scale: 0.4, opacity: 0, duration: 1.4 }, 0);
+      tl.from("[data-hero-line]", { yPercent: 110, duration: 1.2, stagger: 0.1 })
+        .from("[data-hero-photo]", { yPercent: 40, opacity: 0, duration: 1.4, ease: "power4.out" }, 0.25)
+        .from("[data-hero-tag]", { y: -120, rotate: 25, opacity: 0, duration: 1.2, ease: "elastic.out(1, 0.6)" }, 0.8)
+        .from("[data-hero-copy]", { y: 24, opacity: 0, duration: 0.8, stagger: 0.08 }, 0.7)
+        .from("[data-px]", { scale: 0, rotate: -40, duration: 0.9, stagger: 0.1, ease: "back.out(2.4)" }, 0.9);
 
-      // La cabeza flota y cabecea un poco mientras mastica
-      gsap.to("[data-float]", { y: -18, rotate: -3, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
-      tl.from("[data-px]", { scale: 0, rotate: -40, duration: 0.9, stagger: 0.1, ease: "back.out(2.4)" }, 0.6);
       gsap.utils.toArray<HTMLElement>("[data-px]").forEach((el, i) => {
         gsap.to(el.parentElement, {
           y: gsap.utils.random(-24, -10),
@@ -49,8 +47,12 @@ export function HeroSection() {
         });
       });
 
-      gsap.to("[data-hero-stage]", {
-        yPercent: -10,
+      // Respira: un leve vaivén que lo hace sentir vivo entre gesto y gesto
+      gsap.to("[data-breathe]", { scaleY: 1.012, y: -4, rotate: 0.6, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+      // Al bajar: el nombre se aleja más lento que Jesús (profundidad)
+      gsap.to("[data-hero-name]", {
+        yPercent: 18,
         ease: "none",
         scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
       });
@@ -74,51 +76,93 @@ export function HeroSection() {
   );
 
   return (
-    <section
-      id="inicio"
-      ref={root}
-      onPointerMove={vm.onPointerMove}
-      onPointerLeave={vm.onPointerLeave}
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-x-clip pb-12 pt-28"
-    >
-      <div className="mx-auto grid w-full max-w-[1400px] items-center gap-6 px-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:px-8">
-        <div className="relative z-10">
-          <p data-hero-copy className="mb-6 inline-flex items-center gap-2 rounded-full bg-papel px-4 py-2 text-sm font-semibold text-humo shadow-sm">
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-violeta opacity-60" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-violeta" />
-            </span>
-            Disponible para proyectos · Chiapas, MX
-          </p>
-
-          <h1 className="display text-[clamp(4.2rem,13vw,10.5rem)]">
-            <span className="block overflow-hidden pb-1 pt-[0.14em]">
+    <section id="inicio" ref={root} onPointerMove={vm.onPointerMove} onPointerLeave={vm.onPointerLeave} className="relative overflow-x-clip">
+      <div className="relative mx-auto min-h-[100dvh] max-w-[1600px] pt-24">
+        {/* Nombre gigante, detrás */}
+        <motion.h1 style={vm.layers.back} className="relative z-0 px-2 text-center">
+          <span data-hero-name className="display block text-[clamp(5.5rem,23vw,24rem)] leading-[0.8]">
+            <span className="block overflow-hidden pt-[0.12em]">
               <span data-hero-line className="block">
                 Jesús
               </span>
             </span>
-            <span className="block overflow-hidden pb-1 pt-[0.14em]">
+            <span className="block overflow-hidden pt-[0.12em]">
               <span data-hero-line className="block text-violeta">
                 Imanol
               </span>
             </span>
-          </h1>
+          </span>
+        </motion.h1>
 
-          <p data-hero-copy className="mt-6 max-w-xl text-[clamp(1.15rem,2vw,1.45rem)] font-medium leading-snug">
-            Full stack que construye <span className="coqueto">con estructura</span> primero… y{" "}
-            <span className="coqueto">con dientes</span> después.
-          </p>
-          <p data-hero-copy className="mt-3 max-w-[56ch] text-base leading-relaxed text-humo">
-            {PROFILE.pitch}
-          </p>
+        {/* Jesús de frente, encima del nombre */}
+        <div className="pointer-events-none relative z-10 -mt-[30vw] flex justify-center md:absolute md:inset-x-0 md:bottom-0 md:mt-0">
+          <motion.div style={vm.layers.mid} className="relative w-[min(88vw,560px)] md:w-[min(42vw,620px)]">
+            <div data-hero-photo>
+              <div data-breathe className="origin-bottom">
+                <FacePlayer priority />
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
-          <div data-hero-copy className="mt-8 flex flex-wrap items-center gap-5">
+        <motion.div style={vm.layers.front} aria-hidden className="pointer-events-none absolute inset-0 z-20">
+          {PIXELS.map((p) => (
+            <div key={p.art} className={`absolute ${p.className}`}>
+              <div data-px>
+                <Cutout art={p.art} decorative sizes="10vw" />
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Lo que dice: tarjeta rectangular junto a su cabeza */}
+        <motion.div style={vm.layers.front} className="absolute left-[3%] top-[36%] z-30 md:left-[18%] md:top-[44%]">
+          <span
+            ref={bubble}
+            key={vm.bubbleIndex}
+            aria-live="polite"
+            className="display relative block whitespace-nowrap rounded-md bg-tinta px-4 py-2 text-[clamp(1.1rem,2.2vw,1.9rem)] text-lima shadow-[6px_6px_0_var(--color-violeta)] after:absolute after:-right-2 after:top-1/2 after:size-4 after:-translate-y-1/2 after:rotate-45 after:bg-tinta"
+          >
+            {Array.from(vm.bubble).map((ch, i) => (
+              <span key={i} data-ch className="inline-block whitespace-pre">
+                {ch}
+              </span>
+            ))}
+          </span>
+        </motion.div>
+
+        {/* Etiqueta de disponibilidad: rectángulo tipo ticket, del otro lado */}
+        <div data-hero-tag className="absolute right-[3%] top-[44%] z-30 origin-right -rotate-6 scale-[0.8] md:right-[14%] md:top-[50%] md:rotate-3 md:scale-100">
+          <div className="border-2 border-tinta bg-lima px-4 py-3 shadow-[6px_6px_0_var(--color-tinta)]">
+            <p className="flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-tinta">
+              <span className="size-2.5 animate-pulse bg-violeta" />
+              Disponible
+            </p>
+            <p className="display mt-1 text-[clamp(1.2rem,2vw,1.7rem)] leading-none text-tinta">Para proyectos</p>
+            <p className="mt-1 border-t-2 border-dashed border-tinta/40 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-tinta/70">
+              Chiapas, MX · 2026
+            </p>
+          </div>
+        </div>
+
+        {/* Texto y CTA en los costados, abajo */}
+        <div className="relative z-30 mx-auto grid max-w-[1400px] gap-6 px-4 -mt-10 pb-10 pt-0 md:absolute md:inset-x-0 md:bottom-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-end md:px-8 md:pt-0">
+          <div className="md:max-w-[21rem] md:rounded-md md:border-2 md:border-tinta md:bg-papel md:p-4 md:shadow-[6px_6px_0_var(--color-violeta)]">
+            <p data-hero-copy className="text-[clamp(1.15rem,1.6vw,1.4rem)] font-semibold leading-snug">
+              Full stack que construye <span className="coqueto">con estructura</span> primero… y{" "}
+              <span className="coqueto">con dientes</span> después.
+            </p>
+            <p data-hero-copy className="mt-3 text-sm leading-relaxed text-humo">
+              {PROFILE.school}
+            </p>
+          </div>
+          <div data-hero-copy className="flex flex-col items-start gap-3 md:items-end">
             <motion.a
               href="#proyectos"
               whileHover={{ scale: 1.04, rotate: -1 }}
               whileTap={{ scale: 0.96, y: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 18 }}
-              className="inline-flex min-h-14 items-center gap-3 rounded-full bg-violeta px-7 text-lg font-bold text-papel shadow-[0_14px_30px_-12px_rgb(91_71_240/0.7)]"
+              className="pointer-events-auto inline-flex min-h-14 items-center gap-3 rounded-full bg-violeta px-7 text-lg font-bold text-papel shadow-[0_14px_30px_-12px_rgb(91_71_240/0.7)]"
             >
               Ver lo que he construido
               <svg aria-hidden viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={2.4}>
@@ -135,45 +179,10 @@ export function HeroSection() {
             </a>
           </div>
         </div>
-
-        <div data-hero-stage className="relative mx-auto aspect-square w-full max-w-[520px]">
-          <div data-hero-sun className="sun absolute inset-[8%] rounded-full" />
-          <motion.div style={vm.layers.back} className="absolute inset-0">
-            {PIXELS.map((p) => (
-              <div key={p.art} className={`absolute ${p.className}`}>
-                <div data-px>
-                  <Cutout art={p.art} decorative sizes="12vw" />
-                </div>
-              </div>
-            ))}
-          </motion.div>
-          <motion.div style={vm.layers.mid} className="absolute inset-x-[16%] bottom-[2%] top-[6%]">
-            <div data-float className="h-full">
-              <div data-hero-head className="mx-auto h-full w-fit">
-                {/* Mira hacia el nombre, mascando */}
-                <ChompHead flip autoChew fps={7} priority alt="Jesús de perfil, mostrando los dientes" className="h-full" />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div style={vm.layers.front} className="absolute left-[0%] top-[4%] z-10">
-            <span
-              ref={bubble}
-              key={vm.bubbleIndex}
-              aria-live="polite"
-              className="display relative block whitespace-nowrap rounded-[1.6rem] bg-papel px-5 py-3 text-[clamp(1.4rem,3vw,2.2rem)] text-tinta shadow-[0_18px_40px_-18px_rgb(58_43_184/0.45)] after:absolute after:-bottom-2.5 after:right-8 after:size-5 after:rotate-45 after:bg-papel"
-            >
-              {Array.from(vm.bubble).map((ch, i) => (
-                <span key={i} data-ch className="inline-block whitespace-pre">
-                  {ch}
-                </span>
-              ))}
-            </span>
-          </motion.div>
-        </div>
       </div>
 
       {/* Pac-Man: se come las malas prácticas, que vuelven a salir (siempre vuelven) */}
-      <div data-hero-copy className="mx-auto mt-24 w-full max-w-[1400px] px-4 md:mt-28 md:px-8">
+      <div className="mx-auto mt-20 w-full max-w-[1400px] px-4 md:mt-24 md:px-8">
         <div className="hidden md:block">
           <TextChomper text={CHOMP_STRIP} headScale={2.4} speed={320} className="display text-[clamp(3rem,7.4vw,8rem)] text-indigo" />
         </div>

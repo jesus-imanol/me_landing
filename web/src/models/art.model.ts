@@ -24,3 +24,10 @@ export const CHOMP = {
   mouthX: 0.95,
   mouthY: 0.64,
 } as const;
+
+/** Gestos de Jesús de frente: 0 sonrisa, 1 dientes, 2 carcajada, 3 guiño (alineados abajo al centro). */
+export const FRENTE = {
+  frames: ["/img/frente/0.webp", "/img/frente/1.webp", "/img/frente/2.webp", "/img/frente/3.webp"],
+  width: 720,
+  height: 882,
+} as const;
