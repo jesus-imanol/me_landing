@@ -93,7 +93,7 @@ export function HeroSection() {
         {/* Nombre gigante, detrás */}
         <motion.h1 style={vm.layers.back} className="relative z-0 px-2 text-center">
           <span data-hero-name className="display block text-[clamp(5.5rem,23vw,24rem)] leading-[0.8]">
-            <span className="sr-only">Jesús Imanol</span>
+            <span className="sr-only">Jesús Imanol Castillo, Chuy</span>
             {["Jesús", "Imanol"].map((word, w) => (
               <span key={word} aria-hidden className={`block pt-[0.12em] ${w === 1 ? "text-violeta" : ""}`}>
                 {Array.from(word).map((ch, i) => (
@@ -165,7 +165,7 @@ export function HeroSection() {
               <span className="coqueto">con estilo</span> después.
             </p>
             <p data-hero-copy className="mt-3 text-sm leading-relaxed text-humo">
-              {PROFILE.school}
+              Me dicen <strong className="font-bold text-tinta">Chuy</strong> · {PROFILE.school}
             </p>
           </div>
           <div data-hero-copy className="flex flex-col items-start gap-3 md:items-end">

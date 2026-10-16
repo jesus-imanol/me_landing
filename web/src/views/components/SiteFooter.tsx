@@ -13,7 +13,7 @@ export function SiteFooter() {
             </span>
           </p>
           <p className="mt-2 max-w-md text-sm text-humo">
-            Hecho con Next.js, GSAP, anime.js y Motion. Estructura primero, tilín después.
+            Jesús Imanol Castillo, “Chuy” (chuy7x). Desarrollador Full Stack en Chiapas, México. Hecho con Next.js, GSAP, anime.js y Motion.
           </p>
         </div>
         <ul className="flex flex-wrap gap-2">

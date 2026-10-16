@@ -4,6 +4,9 @@ export const PROFILE = {
   name: "Jesús Imanol",
   lastName: "Castillo",
   handle: "jesus-imanol",
+  /** Como lo buscan o le dicen. Va visible en la página y en el JSON-LD (alternateName). */
+  nickname: "Chuy",
+  aliases: ["Chuy", "Chuy Castillo", "Jesús Castillo", "Jesus Castillo", "Jesús Imanol", "Jesus Imanol Castillo", "chuy7x", "chuysscc", "jesus-imanol"],
   role: "Full Stack Developer",
   school: "Ingeniería de Software · Universidad Politécnica de Chiapas",
   pitch:

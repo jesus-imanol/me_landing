@@ -28,3 +28,13 @@ Mismo patrón que carnitas-noyola (ADR-008 de ese vault).
 3. Probar la vista previa en https://www.opengraph.xyz o compartiendo el link en WhatsApp/LinkedIn.
 4. Probar los datos estructurados en https://search.google.com/test/rich-results.
 5. Poner el dominio en el perfil de GitHub y LinkedIn (los backlinks ayudan a que Google asocie el nombre).
+
+## Nombres con los que lo buscan (2026-10-16)
+- Ya aparece en Google. Ahora quiere salir también por **"Chuy"**, **"Jesús Castillo"** y **"chuy7x"**.
+- `PROFILE.aliases` en `models/profile.model.ts` alimenta `alternateName` del JSON-LD (Person). El título, la descripción y las keywords incluyen "Chuy".
+- Texto **visible**: "Me dicen Chuy" en la tarjeta del hero y el nombre completo con apodo en el footer. Lo visible pesa más que los metadatos.
+
+## Otros buscadores
+- **Brave Search** tiene índice propio y **no tiene consola para enviar sitios**: rastrea solo y se guía por los enlaces que llegan al dominio. Lo que más ayuda es poner `https://www.chuy7x.space` en GitHub, LinkedIn, Instagram, dev.to, etc.
+- **Bing Webmaster Tools** (alimenta Bing, DuckDuckGo, Yahoo, Ecosia y el buscador de ChatGPT): se puede importar el sitio directo desde Search Console. Si pide meta, va en `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
+- **IndexNow**: llave en `web/public/19ed98dad4de0daaf13c17f8c3b38a4a.txt`. Después de cada deploy: `npm --prefix web run indexnow`.

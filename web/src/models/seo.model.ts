@@ -5,14 +5,22 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "Jesús Imanol";
-export const SITE_TITLE = "Jesús Imanol Castillo — Desarrollador Full Stack en Chiapas";
+export const SITE_TITLE = "Jesús Imanol Castillo (Chuy) — Desarrollador Full Stack en Chiapas";
 export const SITE_DESCRIPTION =
-  "Portafolio de Jesús Imanol Castillo, desarrollador Full Stack de Chiapas, México. Backend con Go, Node.js y Supabase; frontend y móvil con React, Next.js, Vue y Flutter. Proyectos en fintech, e-commerce, IoT y Web3.";
+  "Portafolio de Jesús Imanol Castillo (Chuy), desarrollador Full Stack de Chiapas, México. Backend con Go, Node.js y Supabase; frontend y móvil con React, Next.js, Vue y Flutter. Proyectos en fintech, e-commerce, IoT y Web3.";
 
 export const SITE_KEYWORDS = [
   "Jesús Imanol Castillo",
   "Jesús Imanol",
   "jesus-imanol",
+  "Jesús Castillo",
+  "Jesus Castillo",
+  "Jesus Castillo desarrollador",
+  "Jesús Castillo programador",
+  "Chuy",
+  "Chuy Castillo",
+  "Chuy desarrollador",
+  "chuy7x",
   "desarrollador full stack",
   "desarrollador web Chiapas",
   "programador Tuxtla Gutiérrez",
