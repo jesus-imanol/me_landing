@@ -28,7 +28,7 @@ Fuente única en código: `web/src/models/project.model.ts`. Si cambias algo aqu
 - carnitas-noyola (proyecto hermano de este vault)
 
 ## En producción (sección "En producción" / "Live work", `#en-produccion`)
-Fuente en código: `web/src/models/live.model.ts`. Capturas reales tomadas con Edge headless (`raw/shots/`, WebP en `web/public/img/live/`).
+Fuente en código: `web/src/models/live.model.ts`. Capturas reales (`raw/shots/`, WebP en `web/public/img/live/`). Escritorio con Edge headless; **celular con `raw/tools/shoot-mobile.mjs`** (Puppeteer + Edge emulando iPhone 390×844). Edge headless solo no sirve para celular: no baja de ~500 px de ancho y la captura sale cortada. `raw/tools/check-live.mjs` revisa la sección bajando como una persona y fotografía las tarjetas.
 
 | Proyecto | URL | Qué es |
 |---|---|---|

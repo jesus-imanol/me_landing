@@ -10,7 +10,7 @@ type LiveBase = {
   url?: string;
   repo?: string;
   stack: string[];
-  /** Captura de escritorio (1200×750) y de celular (360×779) */
+  /** Captura de escritorio (1200×750) y de celular real, emulando un iPhone (390×844) */
   shot?: { desktop: string; mobile: string };
   text: Localized<LiveText>;
 };
@@ -23,7 +23,7 @@ const LIVE_BASE: LiveBase[] = [
     name: "AlwaysWithYou",
     url: "https://alwayswithyou.online/",
     stack: ["Next.js 16", "Supabase", "RLS", "Cloudflare Workers", "TanStack Query", "Vitest"],
-    shot: { desktop: "/img/live/alwayswithyou.webp", mobile: "/img/live/alwayswithyou-m.webp" },
+    shot: { desktop: "/img/live/alwayswithyou.webp", mobile: "/img/live/alwayswithyou-movil.webp" },
     text: {
       es: {
         kind: "Plataforma SaaS · Invitaciones digitales",
@@ -44,7 +44,7 @@ const LIVE_BASE: LiveBase[] = [
     name: "Carnitas Noyola",
     url: "https://carnitasnoyola.chuy7x.space/",
     stack: ["Next.js 16", "MVVM", "anime.js", "SEO local", "WhatsApp"],
-    shot: { desktop: "/img/live/carnitas.webp", mobile: "/img/live/carnitas-m.webp" },
+    shot: { desktop: "/img/live/carnitas.webp", mobile: "/img/live/carnitas-movil.webp" },
     text: {
       es: {
         kind: "Sitio para negocio · Restaurante",
@@ -65,7 +65,7 @@ const LIVE_BASE: LiveBase[] = [
     name: "Emilia Bonita",
     url: "https://emilia-bonita-coffee.jaguarmind.network/",
     stack: ["Next.js 16", "Motion", "Zustand", "Tailwind 4", "WhatsApp"],
-    shot: { desktop: "/img/live/emilia.webp", mobile: "/img/live/emilia-m.webp" },
+    shot: { desktop: "/img/live/emilia.webp", mobile: "/img/live/emilia-movil.webp" },
     text: {
       es: {
         kind: "Sitio para negocio · Cafetería",

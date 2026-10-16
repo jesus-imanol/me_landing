@@ -121,7 +121,7 @@ function SiteCard({ project: p, wide, className = "" }: { project: LiveProject; 
             data-phone
             className="absolute bottom-0 right-0 w-[24%] overflow-hidden rounded-[1.1rem] border-[5px] border-carbon bg-carbon shadow-[6px_6px_0_var(--color-violeta)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-3"
           >
-            <Image src={p.shot.mobile} width={360} height={779} alt="" aria-hidden sizes="20vw" className="h-auto w-full rounded-[0.7rem]" />
+            <Image src={p.shot.mobile} width={390} height={844} alt="" aria-hidden sizes="20vw" className="h-auto w-full rounded-[0.7rem]" />
           </div>
         )}
       </a>
