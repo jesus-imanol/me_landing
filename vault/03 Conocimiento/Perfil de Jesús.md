@@ -11,7 +11,7 @@ fuente: README de github.com/jesus-imanol (2026-10)
   - **Cliente:** React, Next.js, Vue, Flutter. PWAs, apps híbridas, offline-first.
 - **Industrias:** fintech, e-commerce, IoT, Web3.
 - **Dato memorable:** escribió un compilador para un lenguaje en español (`mi_ES_compiler`) por diversión.
-- **Redes:** [LinkedIn](https://www.linkedin.com/in/jesus-imanol-castillo) · [Instagram](https://www.instagram.com/chuysscc/)
+- **Redes:** [LinkedIn](https://www.linkedin.com/in/jes%C3%BAs-imanol-castillo-132974201) · [Instagram](https://www.instagram.com/chuysscc/)
 
 ## Cómo piensa (del README)
 1. La arquitectura es una decisión, no un accidente.

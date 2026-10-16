@@ -29,7 +29,7 @@ export const PROFILE_TEXT: Localized<{ role: string; school: string; pitch: stri
 
 export const SOCIALS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/jesus-imanol" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/jesus-imanol-castillo" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/jes%C3%BAs-imanol-castillo-132974201" },
   { label: "Instagram", href: "https://www.instagram.com/chuysscc/" },
   { label: "X", href: "https://x.com/jesuscast7z" },
   { label: "TikTok", href: "https://www.tiktok.com/@chuysszx" },
