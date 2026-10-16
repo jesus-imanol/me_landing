@@ -3,10 +3,12 @@
 import { motion } from "motion/react";
 import { useRef } from "react";
 import { PRINCIPLES } from "@/models/principle.model";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 import { Cutout } from "@/views/components/Cutout";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 export function PrinciplesSection() {
+  const { locale, t } = useCopy();
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -41,9 +43,9 @@ export function PrinciplesSection() {
     <section id="como-pienso" ref={root} className="bg-niebla/50 px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="mx-auto grid max-w-[1400px] gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <div className="md:sticky md:top-24 md:self-start">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Cómo pienso el software</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.principles.eyebrow}</p>
           <h2 className="display mt-3 text-[clamp(3rem,7vw,5.8rem)]">
-            Systems over <span className="coqueto normal-case">snippets</span>
+            {t.principles.titleA} <span className="coqueto normal-case">{t.principles.titleB}</span>
           </h2>
           <div aria-hidden className="relative mt-10 hidden h-64 md:block">
             <motion.div
@@ -64,7 +66,7 @@ export function PrinciplesSection() {
         </div>
 
         <ol className="flex flex-col gap-14 md:pt-24">
-          {PRINCIPLES.map((p, i) => (
+          {PRINCIPLES[locale].map((p, i) => (
             <li key={p.title} data-principle className="grid grid-cols-[auto_minmax(0,1fr)] gap-4 md:gap-5">
               <span className="display outline-text text-[clamp(3rem,8vw,6.5rem)] leading-none [-webkit-text-stroke-color:var(--color-lavanda)]">
                 {String(i + 1).padStart(2, "0")}

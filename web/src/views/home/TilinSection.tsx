@@ -3,11 +3,13 @@
 import { animate } from "animejs";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef } from "react";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 import { useTilinViewModel } from "@/viewmodels/useTilinViewModel";
 import { TextChomper } from "@/views/motion/TextChomper";
 
 export function TilinSection() {
-  const vm = useTilinViewModel();
+  const { locale, t } = useCopy();
+  const vm = useTilinViewModel(locale);
   const bell = useRef<HTMLButtonElement>(null);
 
   const onRing = () => {
@@ -20,7 +22,7 @@ export function TilinSection() {
   return (
     <section id="tilin" className="relative overflow-x-clip bg-papel px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="mx-auto max-w-[1400px]">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Mi palabra favorita (y mi comida favorita)</p>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.tilin.eyebrow}</p>
         <div className="mt-3">
           {/* Al bajar, Jesús se come TILÍN letra por letra; al subir, la devuelve */}
           <TextChomper
@@ -59,7 +61,7 @@ export function TilinSection() {
                 <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth={2}>
                   <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Hazle tilín
+                {t.tilin.ring}
               </button>
               <AnimatePresence>
                 {vm.reaction && (
@@ -79,10 +81,7 @@ export function TilinSection() {
             </div>
           </div>
 
-          <p className="max-w-[52ch] text-lg text-humo">
-            Se dice cuando algo sale bien. También cuando sale tan mal que da risa. En mi código casi siempre es lo
-            primero. Sube y baja la página: me la como y te la regreso.
-          </p>
+          <p className="max-w-[52ch] text-lg text-humo">{t.tilin.body}</p>
         </div>
       </div>
     </section>

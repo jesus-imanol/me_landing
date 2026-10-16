@@ -1,3 +1,4 @@
+import { HTML_LANG, type Locale } from "@/models/locale.model";
 import type { Project, ProjectArea } from "@/models/project.model";
 
 export type AreaFilter = ProjectArea | "todo";
@@ -13,9 +14,8 @@ export function availableAreas(projects: Project[]): AreaFilter[] {
   return ["todo", ...seen];
 }
 
-const MONTH = new Intl.DateTimeFormat("es-MX", { month: "short", year: "numeric", timeZone: "UTC" });
-
-/** "oct 2026": determinista, no depende de la hora del render (se puede cachear). */
-export function formatMonth(iso: string): string {
-  return MONTH.format(new Date(iso)).replace(".", "");
+/** "oct 2026" / "Oct 2026": determinista, no depende de la hora del render (se puede cachear). */
+export function formatMonth(iso: string, locale: Locale): string {
+  const fmt = new Intl.DateTimeFormat(HTML_LANG[locale], { month: "short", year: "numeric", timeZone: "UTC" });
+  return fmt.format(new Date(iso)).replace(".", "");
 }

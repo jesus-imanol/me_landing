@@ -11,6 +11,10 @@
   --color-tinta: #16132b;
   --color-humo: #67638a;
   --color-linea: #e2ddf7;
+  /* Fijos: no cambian con el tema. Para texto sobre lima y para la sección oscura de GitHub */
+  --color-carbon: #16132b;
+  --color-hueso: #ffffff;
+  --color-lila: #b9afff;
 
   --font-display: var(--font-anton-sc), "Arial Narrow", sans-serif;
   --font-body: var(--font-jakarta), system-ui, sans-serif;
@@ -24,6 +28,26 @@
 
 :root {
   color-scheme: light;
+}
+
+/* Modo oscuro: los mismos tokens con otro valor. El lima y los fijos (carbon, hueso) no cambian */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-fondo: #0e0c1d;
+  --color-papel: #19162f;
+  --color-niebla: #241f4a;
+  --color-violeta: #8676ff;
+  --color-lavanda: #b9afff;
+  --color-indigo: #b3a8ff;
+  --color-tinta: #f2f0ff;
+  --color-humo: #a8a3c9;
+  --color-linea: #2d2952;
+}
+
+/* Al cambiar de tema, nada se anima: el cambio es instantáneo y limpio */
+.theme-switching,
+.theme-switching * {
+  transition: none !important;
 }
 
 html {
@@ -40,7 +64,7 @@ body {
 
 ::selection {
   background: var(--color-lima);
-  color: var(--color-tinta);
+  color: var(--color-carbon);
 }
 
 .display {

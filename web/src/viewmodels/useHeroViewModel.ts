@@ -2,6 +2,7 @@
 
 import { useMotionValue, useSpring, useTransform, type MotionValue } from "motion/react";
 import { useCallback, useEffect, useState, type PointerEvent } from "react";
+import type { Locale } from "@/models/locale.model";
 import { HERO_BUBBLES } from "@/models/phrase.model";
 import { nextIndex } from "@/services/phrase.service";
 
@@ -10,13 +11,14 @@ const SPRING = { stiffness: 100, damping: 20 };
 /** Capa con profundidad: entre más alta, más se mueve con el puntero. */
 export type ParallaxLayer = { x: MotionValue<number>; y: MotionValue<number> };
 
-export function useHeroViewModel() {
+export function useHeroViewModel(locale: Locale) {
+  const bubbles = HERO_BUBBLES[locale];
   const [bubbleIndex, setBubbleIndex] = useState(0);
 
   useEffect(() => {
-    const id = window.setInterval(() => setBubbleIndex((i) => nextIndex(i, HERO_BUBBLES.length)), 2600);
+    const id = window.setInterval(() => setBubbleIndex((i) => nextIndex(i, bubbles.length)), 2600);
     return () => window.clearInterval(id);
-  }, []);
+  }, [bubbles.length]);
 
   // -0.5…0.5 según dónde esté el puntero dentro del hero
   const px = useMotionValue(0);
@@ -46,7 +48,7 @@ export function useHeroViewModel() {
   } satisfies Record<string, ParallaxLayer>;
 
   return {
-    bubble: HERO_BUBBLES[bubbleIndex],
+    bubble: bubbles[bubbleIndex % bubbles.length],
     bubbleIndex,
     onPointerMove,
     onPointerLeave,

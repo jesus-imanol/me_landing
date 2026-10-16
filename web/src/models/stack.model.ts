@@ -1,34 +1,32 @@
+import type { Localized } from "./locale.model";
+
 export type StackGroup = { title: string; items: string[] };
 
-export const STACK: StackGroup[] = [
-  { title: "Lenguajes", items: ["Go", "TypeScript", "JavaScript", "Dart", "Python", "Java", "Kotlin", "PHP", "Rust"] },
-  {
-    title: "Frontend & Mobile",
-    items: ["React", "Next.js", "Vue", "Angular", "Flutter", "Android", "Ionic", "Capacitor", "PWA", "Tailwind", "Vite"],
-  },
-  {
-    title: "Backend & Datos",
-    items: ["Node.js", "Express", "FastAPI", "Django", "Supabase", "PostgreSQL", "MySQL", "MongoDB", "RabbitMQ"],
-  },
-  { title: "Cloud & DevOps", items: ["AWS", "GCP", "Docker", "Vercel", "GitHub Actions", "Linux", "Arduino", "Figma"] },
-  {
-    title: "Arquitectura",
-    items: [
-      "Event-Driven",
-      "Monolito modular",
-      "Hexagonal",
-      "Clean Architecture",
-      "Microservicios",
-      "Offline-first",
-      "SOLID",
-      "TDD",
-      "OAuth 2.0",
-      "JWT + RLS",
-      "WebSockets",
-    ],
-  },
-  { title: "Con IA (sin dejar de pensar)", items: ["Claude Code", "GitHub Copilot", "Cursor", "MCP"] },
-];
+const LANGUAGES = ["Go", "TypeScript", "JavaScript", "Dart", "Python", "Java", "Kotlin", "PHP", "Rust"];
+const FRONTEND = ["React", "Next.js", "Vue", "Angular", "Flutter", "Android", "Ionic", "Capacitor", "PWA", "Tailwind", "Vite"];
+const BACKEND = ["Node.js", "Express", "FastAPI", "Django", "Supabase", "PostgreSQL", "MySQL", "MongoDB", "RabbitMQ"];
+const CLOUD = ["AWS", "GCP", "Docker", "Vercel", "GitHub Actions", "Linux", "Arduino", "Figma"];
+const AI = ["Claude Code", "GitHub Copilot", "Cursor", "MCP"];
+const ARCH_TAIL = ["Hexagonal", "Clean Architecture", "Offline-first", "SOLID", "TDD", "OAuth 2.0", "JWT + RLS", "WebSockets"];
+
+export const STACK: Localized<StackGroup[]> = {
+  es: [
+    { title: "Lenguajes", items: LANGUAGES },
+    { title: "Frontend & Mobile", items: FRONTEND },
+    { title: "Backend & Datos", items: BACKEND },
+    { title: "Cloud & DevOps", items: CLOUD },
+    { title: "Arquitectura", items: ["Event-Driven", "Monolito modular", "Microservicios", ...ARCH_TAIL] },
+    { title: "Con IA (sin dejar de pensar)", items: AI },
+  ],
+  en: [
+    { title: "Languages", items: LANGUAGES },
+    { title: "Frontend & Mobile", items: FRONTEND },
+    { title: "Backend & Data", items: BACKEND },
+    { title: "Cloud & DevOps", items: CLOUD },
+    { title: "Architecture", items: ["Event-Driven", "Modular monolith", "Microservices", ...ARCH_TAIL] },
+    { title: "With AI (still thinking)", items: AI },
+  ],
+};
 
 export const CERTIFICATIONS = [
   "AWS Academy · Generative AI Foundations",

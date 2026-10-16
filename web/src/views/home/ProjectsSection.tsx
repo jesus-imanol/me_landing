@@ -3,12 +3,14 @@
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { useRef } from "react";
 import type { Project } from "@/models/project.model";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 import { useProjectsViewModel } from "@/viewmodels/useProjectsViewModel";
 import { Cutout } from "@/views/components/Cutout";
 import { gsap, prefersReducedMotion, useGSAP } from "@/views/motion/gsap";
 
 export function ProjectsSection() {
-  const vm = useProjectsViewModel();
+  const { locale, t } = useCopy();
+  const vm = useProjectsViewModel(locale);
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -34,14 +36,14 @@ export function ProjectsSection() {
     <section id="proyectos" ref={root} className="mx-auto max-w-[1400px] px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">Lo que he construido</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.projects.eyebrow}</p>
           <h2 className="display mt-3 text-[clamp(3.2rem,8vw,6.5rem)]">
-            Proyectos <span className="coqueto normal-case">con tilín</span>
+            {t.projects.titleA} <span className="coqueto normal-case">{t.projects.titleB}</span>
           </h2>
         </div>
 
         <LayoutGroup>
-          <div role="tablist" aria-label="Filtrar por área" className="flex flex-wrap gap-1 rounded-md border-2 border-tinta bg-papel p-1 shadow-[4px_4px_0_var(--color-tinta)]">
+          <div role="tablist" aria-label={t.projects.filterLabel} className="flex flex-wrap gap-1 rounded-md border-2 border-tinta bg-papel p-1 shadow-[4px_4px_0_var(--color-tinta)]">
             {vm.filters.map((f) => {
               const active = vm.area === f.id;
               return (
@@ -69,7 +71,7 @@ export function ProjectsSection() {
 
       <div className="mt-16 flex flex-col gap-[clamp(4rem,10vw,8rem)]">
         {vm.featured.map((p, i) => (
-          <ProjectRow key={p.slug} project={p} side={i % 2 === 0 ? "right" : "left"} />
+          <ProjectRow key={p.slug} project={p} side={i % 2 === 0 ? "right" : "left"} liveLabel={t.projects.live} />
         ))}
       </div>
 
@@ -97,7 +99,7 @@ export function ProjectsSection() {
   );
 }
 
-function ProjectRow({ project: p, side }: { project: Project; side: "left" | "right" }) {
+function ProjectRow({ project: p, side, liveLabel }: { project: Project; side: "left" | "right"; liveLabel: string }) {
   return (
     <article data-project data-side={side} className="group grid items-center gap-8 md:grid-cols-2 md:gap-16">
       <div className={`relative ${side === "left" ? "md:order-2" : ""}`}>
@@ -117,7 +119,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
 
       <div>
         <p data-copy className="flex flex-wrap items-center gap-3 text-sm font-bold">
-          <span className="rounded-[4px] border-2 border-tinta bg-lima px-2.5 py-0.5 text-tinta shadow-[3px_3px_0_var(--color-violeta)]">{p.year}</span>
+          <span className="rounded-[4px] border-2 border-carbon bg-lima px-2.5 py-0.5 text-carbon shadow-[3px_3px_0_var(--color-violeta)]">{p.year}</span>
           <span className="text-humo">{p.role}</span>
         </p>
         <h3 data-copy className="display mt-4 text-[clamp(3rem,7vw,5.5rem)]">
@@ -133,7 +135,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
         </p>
         <ul data-copy className="mt-6 flex flex-wrap gap-2">
           {p.stack.map((s) => (
-            <li key={s} className="rounded-[4px] border-2 border-tinta bg-papel px-3 py-1 text-sm font-bold shadow-[3px_3px_0_var(--color-tinta)] transition-colors hover:bg-lima">
+            <li key={s} className="rounded-[4px] border-2 border-tinta bg-papel px-3 py-1 text-sm font-bold shadow-[3px_3px_0_var(--color-tinta)] transition-colors hover:bg-lima hover:text-carbon">
               {s}
             </li>
           ))}
@@ -146,7 +148,7 @@ function ProjectRow({ project: p, side }: { project: Project; side: "left" | "ri
             rel="noopener noreferrer"
             className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-violeta underline decoration-2 underline-offset-4 hover:text-indigo"
           >
-            Verlo en vivo
+            {liveLabel}
             <svg aria-hidden viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.4}>
               <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

@@ -1,4 +1,5 @@
 import type { GithubRepo } from "@/models/github.model";
+import type { Locale } from "@/models/locale.model";
 import { getGithubSnapshot } from "@/services/github.service";
 import { formatMonth } from "@/services/project.service";
 
@@ -8,10 +9,10 @@ export type GithubViewModel = {
 };
 
 /** ViewModel de servidor: la vista recibe los datos ya listos para pintar. */
-export async function getGithubViewModel(): Promise<GithubViewModel> {
+export async function getGithubViewModel(locale: Locale): Promise<GithubViewModel> {
   const snapshot = await getGithubSnapshot();
   return {
     publicRepos: snapshot.publicRepos,
-    latest: snapshot.latest.map((r) => ({ ...r, pushedLabel: formatMonth(r.pushedAt) })),
+    latest: snapshot.latest.map((r) => ({ ...r, pushedLabel: formatMonth(r.pushedAt, locale) })),
   };
 }

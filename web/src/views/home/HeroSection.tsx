@@ -4,8 +4,9 @@ import { animate, stagger } from "animejs";
 import { motion } from "motion/react";
 import { useRef } from "react";
 import type { ArtKey } from "@/models/art.model";
-import { CHOMP_STRIP, CHOMP_STRIP_SHORT } from "@/models/phrase.model";
-import { PROFILE } from "@/models/profile.model";
+import { CHOMP_STRIP } from "@/models/phrase.model";
+import { PROFILE_TEXT } from "@/models/profile.model";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 import { useHeroViewModel } from "@/viewmodels/useHeroViewModel";
 import { Cutout } from "@/views/components/Cutout";
 import { FacePlayer } from "@/views/motion/FacePlayer";
@@ -22,7 +23,9 @@ const PIXELS: { art: ArtKey; className: string }[] = [
 ];
 
 export function HeroSection() {
-  const vm = useHeroViewModel();
+  const { locale, t } = useCopy();
+  const vm = useHeroViewModel(locale);
+  const strip = CHOMP_STRIP[locale];
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -93,7 +96,7 @@ export function HeroSection() {
         {/* Nombre gigante, detrás */}
         <motion.h1 style={vm.layers.back} className="relative z-0 px-2 text-center">
           <span data-hero-name className="display block text-[clamp(5.5rem,23vw,24rem)] leading-[0.8]">
-            <span className="sr-only">Jesús Imanol Castillo, Chuy</span>
+            <span className="sr-only">{t.hero.srName}</span>
             {["Jesús", "Imanol"].map((word, w) => (
               <span key={word} aria-hidden className={`block pt-[0.12em] ${w === 1 ? "text-violeta" : ""}`}>
                 {Array.from(word).map((ch, i) => (
@@ -133,7 +136,7 @@ export function HeroSection() {
             ref={bubble}
             key={vm.bubbleIndex}
             aria-live="polite"
-            className="display relative block whitespace-nowrap rounded-md bg-tinta px-4 py-2 text-[clamp(1.1rem,2.2vw,1.9rem)] text-lima shadow-[6px_6px_0_var(--color-violeta)] after:absolute after:-right-2 after:top-1/2 after:size-4 after:-translate-y-1/2 after:rotate-45 after:bg-tinta"
+            className="display relative block whitespace-nowrap rounded-md bg-carbon px-4 py-2 text-[clamp(1.1rem,2.2vw,1.9rem)] text-lima shadow-[6px_6px_0_var(--color-violeta)] after:absolute after:-right-2 after:top-1/2 after:size-4 after:-translate-y-1/2 after:rotate-45 after:bg-carbon"
           >
             {Array.from(vm.bubble).map((ch, i) => (
               <span key={i} data-ch className="inline-block whitespace-pre">
@@ -145,13 +148,13 @@ export function HeroSection() {
 
         {/* Etiqueta de disponibilidad: rectángulo tipo ticket, del otro lado */}
         <div data-hero-tag className="absolute right-[3%] top-[44%] z-30 origin-right -rotate-6 scale-[0.8] md:right-[14%] md:top-[50%] md:rotate-3 md:scale-100">
-          <div className="border-2 border-tinta bg-lima px-4 py-3 shadow-[6px_6px_0_var(--color-tinta)]">
-            <p className="flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-tinta">
+          <div className="border-2 border-carbon bg-lima px-4 py-3 text-carbon shadow-[6px_6px_0_var(--color-violeta)]">
+            <p className="flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.18em]">
               <span className="size-2.5 animate-pulse bg-violeta" />
-              Disponible
+              {t.hero.tagAvailable}
             </p>
-            <p className="display mt-1 text-[clamp(1.2rem,2vw,1.7rem)] leading-none text-tinta">Para proyectos</p>
-            <p className="mt-1 border-t-2 border-dashed border-tinta/40 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-tinta/70">
+            <p className="display mt-1 text-[clamp(1.2rem,2vw,1.7rem)] leading-none">{t.hero.tagForProjects}</p>
+            <p className="mt-1 border-t-2 border-dashed border-carbon/40 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-carbon/70">
               Chiapas, MX · 2026
             </p>
           </div>
@@ -161,11 +164,14 @@ export function HeroSection() {
         <div className="relative z-30 mx-auto grid max-w-[1400px] gap-6 px-4 -mt-10 pb-10 pt-0 md:absolute md:inset-x-0 md:bottom-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-end md:px-8 md:pt-0">
           <div className="md:max-w-[21rem] md:rounded-md md:border-2 md:border-tinta md:bg-papel md:p-4 md:shadow-[6px_6px_0_var(--color-violeta)]">
             <p data-hero-copy className="text-[clamp(1.15rem,1.6vw,1.4rem)] font-semibold leading-snug">
-              Full stack que construye <span className="coqueto">con estructura</span> primero… y{" "}
-              <span className="coqueto">con estilo</span> después.
+              {t.hero.taglineA}
+              <span className="coqueto">{t.hero.taglineStrong1}</span>
+              {t.hero.taglineB}
+              <span className="coqueto">{t.hero.taglineStrong2}</span>
+              {t.hero.taglineC}
             </p>
             <p data-hero-copy className="mt-3 text-sm leading-relaxed text-humo">
-              Me dicen <strong className="font-bold text-tinta">Chuy</strong> · {PROFILE.school}
+              {t.hero.nicknameA} <strong className="font-bold text-tinta">Chuy</strong> · {PROFILE_TEXT[locale].school}
             </p>
           </div>
           <div data-hero-copy className="flex flex-col items-start gap-3 md:items-end">
@@ -176,7 +182,7 @@ export function HeroSection() {
               transition={{ type: "spring", stiffness: 400, damping: 18 }}
               className="pointer-events-auto inline-flex min-h-14 items-center gap-3 rounded-full bg-violeta px-7 text-lg font-bold text-papel shadow-[0_14px_30px_-12px_rgb(91_71_240/0.7)]"
             >
-              Ver lo que he construido
+              {t.hero.cta}
               <svg aria-hidden viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={2.4}>
                 <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -196,10 +202,10 @@ export function HeroSection() {
       {/* Pac-Man: se come las malas prácticas, que vuelven a salir (siempre vuelven) */}
       <div className="mx-auto mt-20 w-full max-w-[1400px] px-4 md:mt-24 md:px-8">
         <div className="hidden md:block">
-          <TextChomper text={CHOMP_STRIP} headScale={2.4} speed={320} className="display text-[clamp(3rem,7.4vw,8rem)] text-indigo" />
+          <TextChomper text={strip.long} headScale={2.4} speed={320} className="display text-[clamp(3rem,7.4vw,8rem)] text-indigo" />
         </div>
         <div className="md:hidden">
-          <TextChomper text={CHOMP_STRIP_SHORT} headScale={2.2} speed={170} className="display text-[clamp(2.4rem,12vw,4rem)] text-indigo" />
+          <TextChomper text={strip.short} headScale={2.2} speed={170} className="display text-[clamp(2.4rem,12vw,4rem)] text-indigo" />
         </div>
       </div>
     </section>

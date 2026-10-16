@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: `${SITE_NAME} — Full Stack Developer`,
     short_name: "Jesús.dev",
-    description: SITE_DESCRIPTION,
+    description: SITE_DESCRIPTION.es,
     lang: "es-MX",
     start_url: "/",
     display: "standalone",

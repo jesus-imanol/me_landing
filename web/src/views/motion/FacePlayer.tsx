@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { FRENTE } from "@/models/art.model";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 
 type Step = [frame: number, ms: number];
 
@@ -43,6 +44,7 @@ const LAUGH: Step[] = [
 
 /** Jesús de frente cambiando de gesto. Cambia el cuadro visible sin re-renderizar React. */
 export function FacePlayer({ className = "", priority }: { className?: string; priority?: boolean }) {
+  const { t } = useCopy();
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,7 +97,7 @@ export function FacePlayer({ className = "", priority }: { className?: string; p
     <div
       ref={root}
       role="img"
-      aria-label="Ilustración de Jesús Imanol saludando y riéndose"
+      aria-label={t.face.alt}
       style={{ aspectRatio: `${FRENTE.width} / ${FRENTE.height}` }}
       className={`pointer-events-auto relative origin-bottom ${className}`}
     >

@@ -1,7 +1,11 @@
+"use client";
+
 import { PROFILE, SOCIALS } from "@/models/profile.model";
+import { useCopy } from "@/viewmodels/LocaleProvider";
 import { LogoMark } from "./LogoMark";
 
 export function SiteFooter() {
+  const { t } = useCopy();
   return (
     <footer className="border-t border-linea bg-papel px-4 py-10 md:px-8">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -12,9 +16,7 @@ export function SiteFooter() {
               {PROFILE.name} <span className="text-violeta">{PROFILE.lastName}</span>
             </span>
           </p>
-          <p className="mt-2 max-w-md text-sm text-humo">
-            Jesús Imanol Castillo, “Chuy” (chuy7x). Desarrollador Full Stack en Chiapas, México. Hecho con Next.js, GSAP, anime.js y Motion.
-          </p>
+          <p className="mt-2 max-w-md text-sm text-humo">{t.footer.line}</p>
         </div>
         <ul className="flex flex-wrap gap-2">
           {SOCIALS.map((s) => (

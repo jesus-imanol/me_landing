@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { MARQUEE_PHRASES } from "@/models/phrase.model";
+import { useLocale } from "@/viewmodels/LocaleProvider";
 import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/views/motion/gsap";
 
 /** Cinta infinita de frases. El scroll la acelera y le cambia la dirección. */
@@ -26,10 +27,11 @@ export function Marquee() {
     { scope: root },
   );
 
-  const items = [...MARQUEE_PHRASES, ...MARQUEE_PHRASES];
+  const phrases = MARQUEE_PHRASES[useLocale()];
+  const items = [...phrases, ...phrases];
 
   return (
-    <div ref={root} className="relative -rotate-2 overflow-hidden bg-lima py-4 text-tinta" aria-hidden>
+    <div ref={root} className="relative -rotate-2 overflow-hidden bg-lima py-4 text-carbon" aria-hidden>
       <div data-track className="flex w-max gap-10 whitespace-nowrap">
         {items.map((p, i) => (
           <span key={i} className="display flex items-center gap-10 text-[clamp(2rem,5vw,3.6rem)]">

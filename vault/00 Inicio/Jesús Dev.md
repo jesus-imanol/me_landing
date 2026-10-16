@@ -6,7 +6,7 @@ tags: [inicio]
 Portafolio personal de **Jesús Imanol Castillo**. Objetivo: venderse como dev con un sitio alegre, violeta con lima, que se recuerde. El protagonista es su caricatura dentuda.
 
 ## Mapa
-- Decisiones: [[ADR-001 Stack Next.js + MVVM]] · [[ADR-002 Tres motores de animación]] · [[ADR-003 Imágenes con Higgsfield]] · [[ADR-004 Datos de GitHub en vivo]] · [[ADR-005 SEO y despliegue]]
+- Decisiones: [[ADR-001 Stack Next.js + MVVM]] · [[ADR-002 Tres motores de animación]] · [[ADR-003 Imágenes con Higgsfield]] · [[ADR-004 Datos de GitHub en vivo]] · [[ADR-005 SEO y despliegue]] · [[ADR-006 Modo oscuro e inglés]]
 - Diseño: [[DESIGN]] · [[Paleta]] · [[Tipografía]]
 - Conocimiento: [[Perfil de Jesús]] · [[Proyectos]] · [[Stack y certificaciones]] · [[Voz y frases]]
 
