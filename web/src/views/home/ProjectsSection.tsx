@@ -33,7 +33,7 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="proyectos" ref={root} className="mx-auto max-w-[1400px] px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
+    <section id="proyectos" ref={root} className="mx-auto max-w-[1400px] overflow-x-clip px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.projects.eyebrow}</p>
@@ -84,7 +84,7 @@ export function ProjectsSection() {
             className="mt-20 divide-y divide-linea border-y border-linea"
           >
             {vm.minor.map((p) => (
-              <li key={p.slug} className="grid gap-2 py-6 md:grid-cols-[6rem_1fr_1.4fr] md:items-baseline md:gap-8">
+              <li key={p.slug} className="grid grid-cols-1 gap-2 py-6 md:grid-cols-[6rem_minmax(0,1fr)_minmax(0,1.4fr)] md:items-baseline md:gap-8">
                 <span className="font-bold text-violeta">{p.year}</span>
                 <span className="display text-3xl">{p.name}</span>
                 <span className="text-humo">
@@ -101,7 +101,7 @@ export function ProjectsSection() {
 
 function ProjectRow({ project: p, side, liveLabel }: { project: Project; side: "left" | "right"; liveLabel: string }) {
   return (
-    <article data-project data-side={side} className="group grid items-center gap-8 md:grid-cols-2 md:gap-16">
+    <article data-project data-side={side} className="group grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
       <div className={`relative ${side === "left" ? "md:order-2" : ""}`}>
         <div className="absolute inset-[10%] rounded-full bg-niebla transition-transform duration-700 group-hover:scale-110" />
         <motion.div

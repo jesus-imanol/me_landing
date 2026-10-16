@@ -29,7 +29,7 @@ export function GithubSection({ snapshot, locale }: Props) {
           )}
         </div>
 
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-[2rem] bg-hueso/10 md:grid-cols-2">
+        <ul className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-[2rem] bg-hueso/10 md:grid-cols-2">
           {OPEN_SOURCE[locale].map((r) => (
             <li key={r.name} data-reveal className="bg-carbon">
               <a
@@ -39,7 +39,7 @@ export function GithubSection({ snapshot, locale }: Props) {
                 className="group flex h-full flex-col gap-2 p-6 transition-colors hover:bg-hueso/5 md:p-8"
               >
                 <span className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-lg font-bold text-lila group-hover:text-lima">{r.name}</span>
+                  <span className="min-w-0 break-all font-mono text-lg font-bold text-lila group-hover:text-lima">{r.name}</span>
                   <span className="shrink-0 rounded-full border border-hueso/20 px-3 py-1 text-xs font-semibold text-hueso/70">
                     {r.stack}
                   </span>

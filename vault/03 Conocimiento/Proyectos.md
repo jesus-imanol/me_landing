@@ -38,3 +38,8 @@ Fuente en código: `web/src/models/live.model.ts`. Capturas reales tomadas con E
 | **Fiadoma** | https://github.com/jesus-imanol/fiadoma | App Flutter para llevar fiados de tiendas (clientes, deudas, abonos) sobre Supabase. Sin sitio público: se muestra su marca |
 
 Cotizaciones por **WhatsApp** (+52 961 179 8392, `WHATSAPP_NUMBER` en `profile.model.ts`). `services/whatsapp.service.ts` arma el link con el mensaje ya escrito en el idioma de la página: general ("vi tu portafolio…") o por proyecto ("vi tu proyecto X…"). Lo usan "Hablemos" (header), "Escríbeme por WhatsApp" (contacto), la tarjeta lima y "Quiero algo así" de cada proyecto. LinkedIn queda en la lista de redes.
+
+### Corrección (2026-10-16): desborde en celular y teléfono de Fiadoma
+- **Desborde:** en celular las tarjetas de "En producción" medían 20 px más que la pantalla (la columna del grid tomaba el ancho del link más largo) y el teléfono quedaba cortado. Igual pasaba con la lista de repos de GitHub. Arreglo: `grid-cols-1` (columnas que se encogen) en todos los grids de una columna, `overflow-x: clip` en `html` y en las secciones con animaciones que llegan de lado.
+- **Fiadoma:** ahora muestra su pantalla de inicio real dentro de un teléfono (`views/components/FiadomaPhone.tsx`, copiada de `login_view.dart`: mismos colores, logo, lema y campos).
+- Test: recorrer toda la página bajando de 350 en 350 px e intentar mover de lado. En 375 px (ES y EN) y 1440 px: 0 px de desplazamiento, ningún elemento sale de la pantalla, 4 teléfonos visibles.

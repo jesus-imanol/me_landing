@@ -53,6 +53,8 @@
 html {
   background: var(--color-fondo);
   scroll-behavior: smooth;
+  /* Ninguna animación de entrada (elementos que llegan desde un lado) puede mover la página de lado en el celular */
+  overflow-x: clip;
 }
 
 body {

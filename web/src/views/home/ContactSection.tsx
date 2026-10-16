@@ -40,7 +40,7 @@ export function ContactSection() {
 
   return (
     <section id="contacto" ref={root} className="relative overflow-hidden px-4 pt-[clamp(4rem,9vw,8rem)] md:px-8">
-      <div className="mx-auto grid max-w-[1400px] items-end gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-end gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
         <div className="pb-[clamp(3rem,8vw,7rem)]">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.contact.eyebrow}</p>
           <h2 data-shout className="display mt-3 origin-left text-[clamp(3.6rem,9vw,8.5rem)]">

@@ -161,7 +161,7 @@ export function HeroSection() {
         </div>
 
         {/* Texto y CTA en los costados, abajo */}
-        <div className="relative z-30 mx-auto grid max-w-[1400px] gap-6 px-4 -mt-10 pb-10 pt-0 md:absolute md:inset-x-0 md:bottom-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-end md:px-8 md:pt-0">
+        <div className="relative z-30 mx-auto grid max-w-[1400px] grid-cols-1 gap-6 px-4 -mt-10 pb-10 pt-0 md:absolute md:inset-x-0 md:bottom-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-end md:px-8 md:pt-0">
           <div className="md:max-w-[21rem] md:rounded-md md:border-2 md:border-tinta md:bg-papel md:p-4 md:shadow-[6px_6px_0_var(--color-violeta)]">
             <p data-hero-copy className="text-[clamp(1.15rem,1.6vw,1.4rem)] font-semibold leading-snug">
               {t.hero.taglineA}

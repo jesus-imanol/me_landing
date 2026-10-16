@@ -25,7 +25,7 @@ export function StackSection() {
 
   return (
     <section id="stack" ref={root} className="mx-auto max-w-[1400px] px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
-      <div className="grid gap-12 md:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.stack.eyebrow}</p>
           <h2 className="display mt-3 text-[clamp(3rem,7vw,5.8rem)]">

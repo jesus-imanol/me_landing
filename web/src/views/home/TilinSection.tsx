@@ -34,7 +34,7 @@ export function TilinSection() {
           />
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] md:items-end">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] md:items-end">
           <div>
             <div className="min-h-[4.5rem] max-w-xl" onPointerEnter={vm.pause} onPointerLeave={vm.resume} aria-live="polite">
               <AnimatePresence mode="wait">

@@ -41,7 +41,7 @@ export function PrinciplesSection() {
 
   return (
     <section id="como-pienso" ref={root} className="bg-niebla/50 px-4 py-[clamp(4rem,9vw,8rem)] md:px-8">
-      <div className="mx-auto grid max-w-[1400px] gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <div className="md:sticky md:top-24 md:self-start">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-violeta">{t.principles.eyebrow}</p>
           <h2 className="display mt-3 text-[clamp(3rem,7vw,5.8rem)]">
