@@ -4,6 +4,7 @@ import { getGithubViewModel } from "@/viewmodels/githubViewModel";
 import { ContactSection } from "./ContactSection";
 import { GithubSection } from "./GithubSection";
 import { HeroSection } from "./HeroSection";
+import { LiveSection } from "./LiveSection";
 import { Marquee } from "./Marquee";
 import { PrinciplesSection } from "./PrinciplesSection";
 import { ProjectsSection } from "./ProjectsSection";
@@ -20,6 +21,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     <>
       <HeroSection />
       <Marquee />
+      <LiveSection />
       <ProjectsSection />
       <TilinSection />
       <PrinciplesSection />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HTML_LANG, LOCALE_PATH, LOCALES, OG_LOCALE, type Locale } from "@/models/locale.model";
 import { PROFILE, PROFILE_TEXT, SOCIALS, X_HANDLE } from "@/models/profile.model";
+import { liveProjectsFor } from "@/models/live.model";
 import { projectsFor } from "@/models/project.model";
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE, SITE_URL } from "@/models/seo.model";
 import { STACK } from "@/models/stack.model";
@@ -118,7 +119,17 @@ export function siteJsonLd(locale: Locale) {
         isPartOf: { "@id": WEBSITE_ID },
         mainEntity: { "@id": PERSON_ID },
         inLanguage: HTML_LANG[locale],
-        hasPart: projectsFor(locale).map((p) => ({
+        hasPart: [
+          ...liveProjectsFor(locale).map((p) => ({
+            "@type": p.url ? "WebSite" : "SoftwareApplication",
+            name: p.name,
+            description: p.summary,
+            url: p.url ?? p.repo,
+            creator: { "@id": PERSON_ID },
+            keywords: p.stack.join(", "),
+            ...(p.shot ? { image: `${SITE_URL}${p.shot.desktop}` } : {}),
+          })),
+          ...projectsFor(locale).map((p) => ({
           "@type": "CreativeWork",
           name: p.name,
           description: p.summary,
@@ -127,6 +138,7 @@ export function siteJsonLd(locale: Locale) {
           keywords: p.stack.join(", "),
           ...(p.href ? { url: p.href } : {}),
         })),
+        ],
       },
     ],
   };

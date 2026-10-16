@@ -24,6 +24,18 @@ export type Copy = {
     filterLabel: string;
     live: string;
   };
+  live: {
+    eyebrow: string;
+    titleA: string;
+    titleB: string;
+    body: string;
+    badge: string;
+    visit: string;
+    code: string;
+    quote: string;
+    ctaTitle: string;
+    ctaBody: string;
+  };
   tilin: { eyebrow: string; ring: string; body: string };
   principles: { eyebrow: string; titleA: string; titleB: string };
   stack: { eyebrow: string; titleA: string; titleB: string; body: string; certifications: string };
@@ -40,6 +52,7 @@ export const COPY: Localized<Copy> = {
       main: "Principal",
       links: [
         { href: "#proyectos", label: "Proyectos" },
+        { href: "#en-produccion", label: "En producción" },
         { href: "#tilin", label: "Tilín" },
         { href: "#como-pienso", label: "Cómo pienso" },
         { href: "#stack", label: "Stack" },
@@ -66,6 +79,19 @@ export const COPY: Localized<Copy> = {
       titleB: "con tilín",
       filterLabel: "Filtrar por área",
       live: "Verlo en vivo",
+    },
+    live: {
+      eyebrow: "En producción",
+      titleA: "Proyectos que",
+      titleB: "ya se usan",
+      body: "Negocios y personas reales los usan todos los días. Si quieres algo así para tu negocio, te paso una cotización sin compromiso.",
+      badge: "En vivo",
+      visit: "Ver sitio",
+      code: "Ver código",
+      quote: "Quiero algo así",
+      ctaTitle: "¿Tienes un negocio o una idea?",
+      ctaBody:
+        "Sitios que venden por WhatsApp, plataformas con panel para tus clientes o apps móviles. Cuéntame qué necesitas y te cotizo.",
     },
     tilin: {
       eyebrow: "Mi palabra favorita (y mi comida favorita)",
@@ -107,6 +133,7 @@ export const COPY: Localized<Copy> = {
       main: "Main",
       links: [
         { href: "#proyectos", label: "Projects" },
+        { href: "#en-produccion", label: "Live work" },
         { href: "#tilin", label: "Tilín" },
         { href: "#como-pienso", label: "How I think" },
         { href: "#stack", label: "Stack" },
@@ -133,6 +160,19 @@ export const COPY: Localized<Copy> = {
       titleB: "with tilín",
       filterLabel: "Filter by area",
       live: "See it live",
+    },
+    live: {
+      eyebrow: "In production",
+      titleA: "Projects people",
+      titleB: "actually use",
+      body: "Real businesses and people use them every day. If you want something like this for your business, I'll send you a no-strings quote.",
+      badge: "Live",
+      visit: "Visit site",
+      code: "See the code",
+      quote: "I want one like this",
+      ctaTitle: "Got a business or an idea?",
+      ctaBody:
+        "Websites that sell through WhatsApp, platforms with a dashboard for your clients, or mobile apps. Tell me what you need and I'll quote it.",
     },
     tilin: {
       eyebrow: "My favorite word (and my favorite snack)",

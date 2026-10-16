@@ -26,3 +26,15 @@ Fuente única en código: `web/src/models/project.model.ts`. Si cambias algo aqu
 - landing_page_volfootball → https://volfootball.vercel.app
 - video_cache_react (screamed) → https://screamed.vercel.app
 - carnitas-noyola (proyecto hermano de este vault)
+
+## En producción (sección "En producción" / "Live work", `#en-produccion`)
+Fuente en código: `web/src/models/live.model.ts`. Capturas reales tomadas con Edge headless (`raw/shots/`, WebP en `web/public/img/live/`).
+
+| Proyecto | URL | Qué es |
+|---|---|---|
+| **AlwaysWithYou** | https://alwayswithyou.online/ | SaaS de invitaciones digitales: subdominio por evento, QR por familia, RSVP, check-in y álbum (Next.js 16, Supabase, Cloudflare) |
+| **Carnitas Noyola** | https://carnitasnoyola.chuy7x.space/ | Sitio de carnicería con pedidos por WhatsApp, ES/EN y SEO local |
+| **Emilia Bonita** | https://emilia-bonita-coffee.jaguarmind.network/ | Landing de cafetería en Huixtla con carta, carrito y pedido a WhatsApp |
+| **Fiadoma** | https://github.com/jesus-imanol/fiadoma | App Flutter para llevar fiados de tiendas (clientes, deudas, abonos) sobre Supabase. Sin sitio público: se muestra su marca |
+
+El botón "Quiero algo así" lleva a LinkedIn. Pendiente: si Jesús da un WhatsApp de negocio, cambiar las cotizaciones a WhatsApp con mensaje prellenado.
