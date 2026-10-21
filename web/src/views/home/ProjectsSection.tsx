@@ -2,6 +2,7 @@
 
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { useRef } from "react";
+import { ART } from "@/models/art.model";
 import type { Project } from "@/models/project.model";
 import { useCopy } from "@/viewmodels/LocaleProvider";
 import { useProjectsViewModel } from "@/viewmodels/useProjectsViewModel";
@@ -99,6 +100,9 @@ export function ProjectsSection() {
   );
 }
 
+/** Alto máximo de las ilustraciones de proyecto, en px */
+const ART_MAX_H = 400;
+
 function ProjectRow({ project: p, side, liveLabel }: { project: Project; side: "left" | "right"; liveLabel: string }) {
   return (
     <article data-project data-side={side} className="group grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
@@ -106,7 +110,9 @@ function ProjectRow({ project: p, side, liveLabel }: { project: Project; side: "
         <div className="absolute inset-[10%] rounded-full bg-niebla transition-transform duration-700 group-hover:scale-110" />
         <motion.div
           data-art
-          className="relative mx-auto w-[78%] max-w-[440px]"
+          className="relative mx-auto w-[78%]"
+          // Todas a la misma altura máxima: las altas (ConoceMex) no crecen de más
+          style={{ maxWidth: p.image ? `min(440px, ${Math.round((ART_MAX_H * ART[p.image].width) / ART[p.image].height)}px)` : 440 }}
           whileHover={{ rotate: side === "left" ? 4 : -4, scale: 1.05 }}
           transition={{ type: "spring", stiffness: 120, damping: 12 }}
         >

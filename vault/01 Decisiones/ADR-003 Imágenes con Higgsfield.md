@@ -33,7 +33,7 @@ Jesús pidió estar de frente, delante de "JESÚS IMANOL" en gigante, y animado.
 - `FacePlayer` reproduce un guion en bucle (sonríe, enseña dientes, guiña y a veces se ríe); al pasar el puntero o tocarlo suelta una carcajada. GSAP le agrega una respiración leve.
 - La píldora "Disponible" se cambió por una etiqueta rectangular tipo ticket (lima, borde tinta, sombra dura) junto a su hombro. Lo que dice va en una tarjeta tinta/lima, también rectangular.
 
-## Objetos de proyectos: renders 3D estilo "tech toy" (vigente)
+## Objetos de proyectos: renders 3D estilo "tech toy" (reemplazados el 2026-10-21 por ilustraciones planas, ver [[Prompts de imágenes]])
 Referencia de Jesús: renders 3D mate con piezas pixeladas (cursor, monedas, cubo), morado con lima.
 - Prompt base: plástico mate y arcilla, bordes redondeados, piezas voxel/pixel-art, luz de estudio suave. Paleta estricta #5B47F0, lavanda, blanco roto, carbón y lima #D7F23A. Sin texto, sin logos, sin fondo.
 - Proyectos: `*-3d.webp` (el sufijo rompe la caché de imágenes de Next con respecto a la tanda anterior).

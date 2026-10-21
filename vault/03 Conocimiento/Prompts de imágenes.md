@@ -67,3 +67,9 @@ A pixel-art style curly brace code symbol { made of square pixels, lime fill. [B
 - **Los colores no combinan:** repite la paleta y vuelve a subir la referencia.
 
 Bocetos SVG hechos a mano como respaldo: `raw/flat-svg/` (no se usan en el sitio).
+
+## Resultado (2026-10-21)
+- Jesús generó las 10 con estos prompts y las dejó en `web/assets/`. Originales respaldados en `raw/flat-v4/`.
+- **El fondo "transparente" venía pintado** (cuadriculado gris dentro de la imagen, todas opacas). Se quitó con `raw/tools/remove-checker.mjs`, que rellena desde las orillas los píxeles gris/blanco sin color y se detiene en el contorno oscuro, así que conserva los blancos de adentro (máscara, nube, cursor). Limpias en `raw/flat-v4/limpias/`.
+- En el sitio: `web/public/img/*-flat.webp` (reemplazan a los `*-3d.webp`). También se regeneraron `web/assets/og-bug.png` y `og-coin.png` para la imagen de redes.
+- `ProjectsSection` limita cada ilustración a 400 px de alto según su proporción, para que las altas (ConoceMex) no crezcan de más.

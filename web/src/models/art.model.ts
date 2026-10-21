@@ -1,17 +1,20 @@
-/** Renders 3D de Higgsfield (PNG sin fondo → WebP recortado). Ver vault: ADR-003. */
+/**
+ * Ilustraciones planas de los proyectos (mismo estilo que el personaje), generadas por Jesús con los prompts del vault.
+ * El cuadriculado "transparente" venía pintado; se quita con raw/tools/remove-checker.mjs. Ver vault: Prompts de imágenes.
+ */
 export type Art = { src: string; width: number; height: number; alt: string };
 
 export const ART = {
-  conocemex: { src: "/img/conocemex-3d.webp", width: 900, height: 687, alt: "Celular con mapa, pin pixelado y pirámide de cubos" },
-  monii: { src: "/img/monii-3d.webp", width: 853, height: 877, alt: "Terminal de pago con código QR y monedas pixeladas" },
-  cinesnacks: { src: "/img/cinesnacks-3d.webp", width: 691, height: 900, alt: "Máquina de palomitas con lector de tarjeta sin contacto" },
-  cilantro: { src: "/img/cilantro-3d.webp", width: 563, height: 900, alt: "Maceta con cilantro pixelado y un sensor IoT" },
-  lambi: { src: "/img/lambi-3d.webp", width: 787, height: 900, alt: "Nube con servidor y un cursor pixelado despegando" },
-  secretEvent: { src: "/img/secret-event-3d.webp", width: 782, height: 871, alt: "Cubo con candado pixelado y una máscara anónima" },
-  pxBug: { src: "/img/px-bug.webp", width: 480, height: 451, alt: "Bicho pixelado" },
-  pxCoin: { src: "/img/px-coin.webp", width: 411, height: 480, alt: "Moneda pixelada con carita feliz" },
-  pxCursor: { src: "/img/px-cursor.webp", width: 311, height: 480, alt: "Cursor pixelado" },
-  pxBrace: { src: "/img/px-brace.webp", width: 210, height: 480, alt: "Llave de código pixelada" },
+  conocemex: { src: "/img/conocemex-flat.webp", width: 412, height: 820, alt: "Celular con un mapa, un pin y una pirámide" },
+  monii: { src: "/img/monii-flat.webp", width: 627, height: 773, alt: "Terminal de pago con código QR y monedas" },
+  cinesnacks: { src: "/img/cinesnacks-flat.webp", width: 638, height: 780, alt: "Máquina de palomitas con lector de tarjeta sin contacto" },
+  cilantro: { src: "/img/cilantro-flat.webp", width: 537, height: 814, alt: "Maceta con cilantro y un sensor IoT" },
+  lambi: { src: "/img/lambi-flat.webp", width: 718, height: 615, alt: "Nube con un servidor y un cursor despegando" },
+  secretEvent: { src: "/img/secret-event-flat.webp", width: 575, height: 642, alt: "Cubo con candado y una máscara anónima" },
+  pxBug: { src: "/img/px-bug-flat.webp", width: 408, height: 480, alt: "Bicho pixelado" },
+  pxCoin: { src: "/img/px-coin-flat.webp", width: 414, height: 480, alt: "Moneda pixelada con carita feliz" },
+  pxCursor: { src: "/img/px-cursor-flat.webp", width: 334, height: 480, alt: "Cursor pixelado" },
+  pxBrace: { src: "/img/px-brace-flat.webp", width: 232, height: 480, alt: "Llave de código pixelada" },
 } satisfies Record<string, Art>;
 
 export type ArtKey = keyof typeof ART;
